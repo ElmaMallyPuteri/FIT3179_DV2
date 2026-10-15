@@ -1,0 +1,153 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "States compared on four measures",
+  "width": "container",
+  "height": 340,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "data": {
+    "url": "data/state_totals.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "trips_k": "number",
+        "nights_k": "number",
+        "spend_m": "number",
+        "avg_nights": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "{'New South Wales':'NSW','Victoria':'VIC','Queensland':'QLD','South Australia':'SA','Western Australia':'WA','Tasmania':'TAS','Northern Territory':'NT','Australian Capital Territory':'ACT'}[datum.state]",
+      "as": "abbr_"
+    },
+    {
+      "fold": [
+        "trips_k",
+        "nights_k",
+        "spend_m",
+        "avg_nights"
+      ],
+      "as": [
+        "measure",
+        "value"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "value",
+          "as": "mx"
+        }
+      ],
+      "groupby": [
+        "measure"
+      ]
+    },
+    {
+      "calculate": "datum.value / datum.mx * 100",
+      "as": "scaled"
+    },
+    {
+      "calculate": "{'trips_k':'Trips','nights_k':'Nights','spend_m':'Spending','avg_nights':'Nights per trip'}[datum.measure]",
+      "as": "label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "opacity": 0.8
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 50
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "label",
+      "type": "ordinal",
+      "sort": [
+        "Trips",
+        "Nights",
+        "Spending",
+        "Nights per trip"
+      ],
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "scaled",
+      "type": "quantitative",
+      "title": "Scaled value (biggest state = 100)"
+    },
+    "detail": {
+      "field": "state",
+      "type": "nominal"
+    },
+    "color": {
+      "field": "abbr_",
+      "type": "nominal",
+      "scale": {
+        "scheme": "tableau10"
+      },
+      "title": null,
+      "legend": {
+        "orient": "bottom",
+        "columns": 8,
+        "symbolType": "stroke"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state"
+      },
+      {
+        "field": "label",
+        "title": "Measure"
+      },
+      {
+        "field": "value",
+        "format": ","
+      }
+    ]
+  }
+}

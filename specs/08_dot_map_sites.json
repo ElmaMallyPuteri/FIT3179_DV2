@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Every caravan park and campsite mapped in OpenStreetMap",
+  "width": "container",
+  "height": 460,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -134,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA94"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e3e8e6",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "data/caravan_sites.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "size": 10,
+        "opacity": 0.55,
+        "stroke": "#ffffff",
+        "strokeWidth": 0
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "caravan_site",
+              "camp_site"
+            ],
+            "range": [
+              "#1f6f6a",
+              "#d1601f"
+            ]
+          },
+          "title": "Site type",
+          "legend": {
+            "labelExpr": "datum.value == 'caravan_site' ? 'Caravan park' : 'Campsite'",
+            "symbolOpacity": 1
+          }
+        },
+        "tooltip": [
+          {
+            "field": "label",
+            "title": "Name"
+          },
+          {
+            "field": "type",
+            "title": "Type"
+          }
+        ],
+        "order": {
+          "field": "type",
+          "type": "nominal",
+          "sort": "descending"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.name == '' || datum.name == null ? 'Unnamed site' : datum.name",
+          "as": "label"
+        }
+      ]
+    }
+  ]
+}

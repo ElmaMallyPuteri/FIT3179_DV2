@@ -1,0 +1,33 @@
+state,abbr,quarter,trips_k,nights_k,spend_m
+New South Wales,NSW,Sep 2025,9156,26457,7061
+New South Wales,NSW,Dec 2025,10570,31126,8263
+New South Wales,NSW,Mar 2026,10112,33854,8836
+New South Wales,NSW,Jun 2026,9362,27718,7520
+Victoria,VIC,Sep 2025,7192,18961,5109
+Victoria,VIC,Dec 2025,8043,21450,5708
+Victoria,VIC,Mar 2026,8458,25946,7082
+Victoria,VIC,Jun 2026,7301,20134,5598
+Queensland,QLD,Sep 2025,6738,24305,7185
+Queensland,QLD,Dec 2025,6772,23303,6957
+Queensland,QLD,Mar 2026,6143,22782,6672
+Queensland,QLD,Jun 2026,6359,21613,6363
+South Australia,SA,Sep 2025,1751,5428,1440
+South Australia,SA,Dec 2025,2050,6427,1734
+South Australia,SA,Mar 2026,2079,7438,2004
+South Australia,SA,Jun 2026,1828,5910,1799
+Western Australia,WA,Sep 2025,2421,8562,2789
+Western Australia,WA,Dec 2025,2563,8805,2867
+Western Australia,WA,Mar 2026,2538,9621,3013
+Western Australia,WA,Jun 2026,2411,8544,2789
+Tasmania,TAS,Sep 2025,643,2127,609
+Tasmania,TAS,Dec 2025,757,2613,810
+Tasmania,TAS,Mar 2026,865,3491,1178
+Tasmania,TAS,Jun 2026,678,2449,710
+Northern Territory,NT,Sep 2025,328,1581,629
+Northern Territory,NT,Dec 2025,214,842,387
+Northern Territory,NT,Mar 2026,168,647,317
+Northern Territory,NT,Jun 2026,276,1160,453
+Australian Capital Territory,ACT,Sep 2025,588,1529,507
+Australian Capital Territory,ACT,Dec 2025,586,1611,549
+Australian Capital Territory,ACT,Mar 2026,542,1626,595
+Australian Capital Territory,ACT,Jun 2026,505,1461,500

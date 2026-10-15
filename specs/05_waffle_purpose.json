@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Why Australians go: purpose of caravan and camping trips (100 squares = all trips)",
+  "width": "container",
+  "height": 300,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "data": {
+    "sequence": {
+      "start": 0,
+      "stop": 100,
+      "as": "i"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.i % 10",
+      "as": "col"
+    },
+    {
+      "calculate": "floor(datum.i / 10)",
+      "as": "row"
+    },
+    {
+      "calculate": "datum.i < 80 ? 'Holiday (80%)' : datum.i < 92 ? 'Visiting friends and relatives (12%)' : 'Other reasons (8%)'",
+      "as": "purpose"
+    }
+  ],
+  "mark": {
+    "type": "square",
+    "size": 420
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null
+    },
+    "color": {
+      "field": "purpose",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "range": [
+          "#1f6f6a",
+          "#f2b705",
+          "#b9c4c2"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "columns": 1
+      }
+    },
+    "tooltip": [
+      {
+        "field": "purpose"
+      }
+    ]
+  }
+}

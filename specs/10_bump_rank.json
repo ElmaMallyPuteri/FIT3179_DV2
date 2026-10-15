@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "State ranking by visitor spending",
+  "width": "container",
+  "height": 320,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "data": {
+    "url": "data/state_quarter.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "trips_k": "number",
+        "nights_k": "number",
+        "spend_m": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "groupby": [
+        "quarter"
+      ],
+      "sort": [
+        {
+          "field": "spend_m",
+          "order": "descending"
+        }
+      ]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "point": {
+          "filled": true,
+          "size": 70
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.quarter == 'Jun 2026'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "abbr"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "quarter",
+      "type": "ordinal",
+      "sort": [
+        "Sep 2025",
+        "Dec 2025",
+        "Mar 2026",
+        "Jun 2026"
+      ],
+      "title": "Quarter",
+      "scale": {
+        "padding": 0.4
+      },
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "ordinal",
+      "title": "Rank (1 = most spending)"
+    },
+    "color": {
+      "field": "abbr",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "scheme": "tableau10"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state"
+      },
+      {
+        "field": "quarter"
+      },
+      {
+        "field": "rank",
+        "title": "Rank"
+      },
+      {
+        "field": "spend_m",
+        "title": "Spend ($m)",
+        "format": ","
+      }
+    ]
+  }
+}

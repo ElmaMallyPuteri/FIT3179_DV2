@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "When do trips happen? Overnight trips by state and quarter",
+  "width": "container",
+  "height": 300,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "data": {
+    "url": "data/state_quarter.csv"
+  },
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "quarter",
+      "type": "ordinal",
+      "sort": [
+        "Sep 2025",
+        "Dec 2025",
+        "Mar 2026",
+        "Jun 2026"
+      ],
+      "title": "Quarter",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "abbr",
+      "type": "nominal",
+      "sort": {
+        "field": "trips_k",
+        "op": "sum",
+        "order": "descending"
+      },
+      "title": null
+    },
+    "color": {
+      "field": "trips_k",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "teals"
+      },
+      "title": "Trips (000s)",
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 220,
+        "titleLimit": 300
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state"
+      },
+      {
+        "field": "quarter"
+      },
+      {
+        "field": "trips_k",
+        "title": "Trips (000s)",
+        "format": ","
+      }
+    ]
+  }
+}

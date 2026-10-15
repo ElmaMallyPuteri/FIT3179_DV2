@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Caravan and camping trips, millions (CIAA / TRA)",
+  "width": "container",
+  "height": 300,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "p": "2024",
+        "m": 15.2
+      },
+      {
+        "p": "2025",
+        "m": 17.3
+      },
+      {
+        "p": "Year to Mar 2026",
+        "m": 17.7
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 90,
+          "color": "#1f6f6a"
+        },
+        "color": "#1f6f6a",
+        "strokeWidth": 3
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -14,
+        "fontSize": 13,
+        "color": "#1c262b"
+      },
+      "encoding": {
+        "text": {
+          "field": "m",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "p": "2025",
+            "m": 13.2,
+            "t": "TRA changed its survey method in 2025,"
+          },
+          {
+            "p": "2025",
+            "m": 12.4,
+            "t": "so older years are adjusted estimates."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "color": "#5b6a70"
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "p",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "m",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          10,
+          20
+        ]
+      },
+      "title": "Trips (millions)"
+    }
+  }
+}

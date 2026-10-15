@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Where the nights are spent: nights away by state, year ending June 2026",
+  "width": "container",
+  "height": 460,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -134,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA94"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e3e8e6",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/state_totals.csv"
+            },
+            "key": "state",
+            "fields": [
+              "nights_k",
+              "avg_nights"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#f2b705",
+        "stroke": "#1c262b",
+        "strokeWidth": 1,
+        "opacity": 0.85
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "nights_k",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              80,
+              5000
+            ]
+          },
+          "title": "Nights (thousands)"
+        },
+        "tooltip": [
+          {
+            "field": "state"
+          },
+          {
+            "field": "nights_k",
+            "title": "Nights (000s)",
+            "format": ","
+          },
+          {
+            "field": "avg_nights",
+            "title": "Average nights per trip"
+          }
+        ]
+      }
+    }
+  ]
+}

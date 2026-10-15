@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average nights per trip: a tile map where every state is the same size",
+  "width": 520,
+  "height": 320,
+  "autosize": {
+    "type": "none"
+  },
+  "config": {
+    "font": "Barlow",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "domainColor": "#9aa5a8",
+      "tickColor": "#9aa5a8",
+      "gridColor": "#e3e8e6"
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 12
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 17,
+      "anchor": "start",
+      "color": "#1c262b"
+    }
+  },
+  "data": {
+    "url": "data/states.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "tile_x": "number",
+        "tile_y": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "lookup": "state",
+      "from": {
+        "data": {
+          "url": "data/state_totals.csv"
+        },
+        "key": "state",
+        "fields": [
+          "avg_nights"
+        ]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "square",
+        "size": 4800
+      },
+      "encoding": {
+        "color": {
+          "field": "avg_nights",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "teals"
+          },
+          "title": "Nights per trip",
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 220,
+            "titleLimit": 300
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "dy": -9
+      },
+      "encoding": {
+        "text": {
+          "field": "abbr"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.avg_nights > 3.4",
+            "value": "#ffffff"
+          },
+          "value": "#1c262b"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "dy": 10
+      },
+      "encoding": {
+        "text": {
+          "field": "avg_nights",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.avg_nights > 3.4",
+            "value": "#ffffff"
+          },
+          "value": "#1c262b"
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "tile_x",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "tile_y",
+      "type": "ordinal",
+      "axis": null
+    },
+    "tooltip": [
+      {
+        "field": "state"
+      },
+      {
+        "field": "avg_nights",
+        "title": "Average nights per trip"
+      }
+    ]
+  }
+}
