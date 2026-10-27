@@ -1,0 +1,9 @@
+state,abbr,lon,lat,tile_x,tile_y,trips_k,nights_k,spend_m,avg_nights,pop_k,trips_per_1000,spend_per_trip,spend_per_night
+New South Wales,NSW,147.0,-32.5,2,1,39200,119155,31680,3.0,8670.1,4521,808,266
+Victoria,VIC,144.5,-37.0,2,2,30994,86492,23496,2.8,7154.2,4332,758,272
+Queensland,QLD,144.0,-22.5,2,0,26012,92004,27177,3.5,5739.5,4532,1045,295
+South Australia,SA,135.0,-30.0,1,1,7708,25202,6977,3.3,1916.8,4021,905,277
+Western Australia,WA,122.0,-26.0,0,1,9933,35532,11458,3.6,3096.2,3208,1154,322
+Tasmania,TAS,146.6,-42.0,2,3,2943,10680,3307,3.6,580.7,5068,1124,310
+Northern Territory,NT,133.5,-19.5,1,0,986,4229,1786,4.3,268.9,3667,1811,422
+Australian Capital Territory,ACT,149.0,-35.5,3,1,2221,6229,2151,2.8,489.7,4535,968,345

@@ -11,14 +11,14 @@
     "contains": "padding"
   },
   "config": {
-    "font": "Arial, Helvetica, sans-serif",
+    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
     "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
@@ -28,20 +28,20 @@
       "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
       "color": "#25344F",
-      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "subtitleFontSize": 12,
       "subtitleColor": "#617891",
       "subtitlePadding": 4,
@@ -106,9 +106,7 @@
         }
       ],
       "mark": {
-        "type": "geoshape",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 1.2
+        "type": "geoshape"
       },
       "encoding": {
         "color": {
@@ -126,7 +124,8 @@
               "#D5B893",
               "#617891",
               "#25344F"
-            ]
+            ],
+            "interpolate": "lab"
           },
           "title": "Trips per 1,000 residents",
           "legend": {
@@ -134,7 +133,7 @@
             "direction": "horizontal",
             "gradientLength": 240,
             "titleLimit": 300,
-            "format": ",",
+            "format": ",.0f",
             "values": [
               3000,
               3500,
@@ -152,20 +151,49 @@
           {
             "field": "trips_per_1000",
             "title": "Trips per 1,000 residents",
-            "format": ","
+            "format": ",.0f"
           },
           {
             "field": "trips_k",
             "title": "Total trips (000s)",
-            "format": ","
+            "format": ",.0f"
           },
           {
             "field": "pop_k",
             "title": "Population (000s)",
             "format": ",.0f"
           }
-        ]
-      }
+        ],
+        "stroke": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": "#632024"
+          },
+          "value": "#FFFFFF"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": 2.5
+          },
+          "value": 1.2
+        }
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout",
+            "fields": [
+              "properties.STE_NAME21"
+            ]
+          }
+        }
+      ]
     },
     {
       "data": {
@@ -198,7 +226,7 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "dy": -7,
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {
@@ -253,7 +281,7 @@
         "fontSize": 11,
         "fontWeight": "normal",
         "dy": 8,
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {
@@ -274,7 +302,7 @@
         "text": {
           "field": "trips_per_1000",
           "type": "quantitative",
-          "format": ","
+          "format": ",.0f"
         }
       }
     },
@@ -324,7 +352,7 @@
         "fontWeight": "normal",
         "fontStyle": "normal",
         "color": "#25344F",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {
@@ -359,7 +387,7 @@
         "fontWeight": "bold",
         "fontStyle": "normal",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {
@@ -394,7 +422,7 @@
         "fontWeight": "bold",
         "fontStyle": "normal",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {

@@ -1,9 +1,11 @@
 /* =====================================================================
    Caravan and Road Trip: page styles
-   Palette (shared with every chart, see tools/build_specs.py):
+   Palette (shared with every chart in /specs):
    Space Cadet #25344F, Slate Gray #617891, Tan #D5B893,
    Coffee #6F4D38, Caput Mortuum #632024
-   Type: headings in Times New Roman (serif), body text in Arial (sans serif)
+   Type: headings in Fraunces (a warm, slightly weathered serif that suits a road-trip story),
+   body text in Public Sans (clear and open at reading sizes). Both load from Google Fonts,
+   with Georgia and Arial as fallbacks.
    ===================================================================== */
 :root {
   --space: #25344f;
@@ -15,8 +17,8 @@
   --page-alt: #f0e8d9; /* slightly deeper tint, for alternating sections */
   --card: #fffdf8;
   --card-edge: #e4dac8;
-  --serif: "Times New Roman", Times, serif;
-  --sans: Arial, Helvetica, sans-serif;
+  --serif: Fraunces, Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", Arial, Helvetica, sans-serif;
 }
 
 /* ---- Vega-Embed: let charts fill their container ---- */
@@ -244,5 +246,40 @@ footer b {
   .stats {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+}
+
+/* ---- Closing takeaways ---- */
+.takeaways {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.takeaways > div {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-top: 5px solid var(--caput);
+  padding: 1.2rem 1.4rem 0.6rem;
+}
+.takeaways b {
+  font: 700 1.3rem var(--serif);
+  color: var(--space);
+}
+.takeaways p {
+  margin: 0.5rem 0 0.8rem;
+}
+footer code {
+  color: #fff;
+  font-size: 0.9em;
+}
+@media (max-width: 800px) {
+  .takeaways {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

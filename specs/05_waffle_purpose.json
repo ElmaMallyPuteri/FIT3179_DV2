@@ -4,20 +4,20 @@
     "text": "Purpose of caravan and camping trips",
     "subtitle": "Each square is 1 in every 100 trips, year to March 2026"
   },
-  "width": 260,
+  "width": 400,
   "height": 260,
   "autosize": {
     "type": "pad"
   },
   "config": {
-    "font": "Arial, Helvetica, sans-serif",
+    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
     "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
@@ -27,20 +27,20 @@
       "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
       "color": "#25344F",
-      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "subtitleFontSize": 12,
       "subtitleColor": "#617891",
       "subtitlePadding": 4,
@@ -78,7 +78,13 @@
         "x": {
           "field": "col",
           "type": "ordinal",
-          "axis": null
+          "axis": null,
+          "scale": {
+            "range": [
+              0,
+              260
+            ]
+          }
         },
         "y": {
           "field": "row",
@@ -105,7 +111,7 @@
             "orient": "bottom",
             "columns": 1,
             "symbolType": "square",
-            "labelLimit": 300
+            "labelLimit": 380
           }
         },
         "tooltip": [
@@ -120,25 +126,25 @@
       "data": {
         "values": [
           {
-            "t": "80 of every 100"
+            "t": "80"
           }
         ]
       },
       "mark": {
         "type": "text",
-        "color": "#FFFFFF",
-        "fontWeight": "bold",
-        "fontSize": 15,
-        "align": "center",
+        "align": "left",
         "baseline": "middle",
-        "font": "Arial, Helvetica, sans-serif"
+        "fontSize": 54,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "Fraunces, Georgia, \"Times New Roman\", serif"
       },
       "encoding": {
         "x": {
-          "value": 130
+          "value": 282
         },
         "y": {
-          "value": 96
+          "value": 46
         },
         "text": {
           "field": "t",
@@ -150,25 +156,31 @@
       "data": {
         "values": [
           {
-            "t": "trips are holidays"
+            "t": "of every 100 trips",
+            "y": 92
+          },
+          {
+            "t": "are holidays",
+            "y": 110
           }
         ]
       },
       "mark": {
         "type": "text",
-        "color": "#FFFFFF",
-        "fontWeight": "bold",
-        "fontSize": 15,
-        "align": "center",
+        "align": "left",
         "baseline": "middle",
-        "font": "Arial, Helvetica, sans-serif"
+        "fontSize": 14,
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
-          "value": 130
+          "value": 284
         },
         "y": {
-          "value": 118
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
         },
         "text": {
           "field": "t",

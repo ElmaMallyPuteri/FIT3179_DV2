@@ -5,20 +5,20 @@
     "subtitle": "All overnight trips, year to June 2026"
   },
   "width": "container",
-  "height": 440,
+  "height": 470,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
   },
   "config": {
-    "font": "Arial, Helvetica, sans-serif",
+    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
     "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
@@ -28,20 +28,20 @@
       "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
       "color": "#25344F",
-      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "subtitleFontSize": 12,
       "subtitleColor": "#617891",
       "subtitlePadding": 4,
@@ -126,7 +126,7 @@
           "field": "nights_m",
           "type": "quantitative",
           "scale": {
-            "type": "sqrt",
+            "type": "linear",
             "domain": [
               0,
               120
@@ -137,17 +137,7 @@
             ]
           },
           "title": "Nights away (millions)",
-          "legend": {
-            "orient": "bottom",
-            "direction": "horizontal",
-            "values": [
-              10,
-              50,
-              100
-            ],
-            "symbolFillColor": "#617891",
-            "titleLimit": 300
-          }
+          "legend": null
         },
         "color": {
           "condition": {
@@ -169,14 +159,43 @@
           {
             "field": "trips_k",
             "title": "Trips (000s)",
-            "format": ","
+            "format": ",.0f"
           },
           {
             "field": "avg_nights",
             "title": "Nights per trip"
           }
-        ]
-      }
+        ],
+        "stroke": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": "#25344F"
+          },
+          "value": "#FFFFFF"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": 3
+          },
+          "value": 1.5
+        }
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout",
+            "fields": [
+              "abbr"
+            ]
+          }
+        }
+      ]
     },
     {
       "data": {
@@ -209,7 +228,7 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#FFFFFF",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {
@@ -259,7 +278,7 @@
         "color": "#25344F",
         "align": "left",
         "dx": 13,
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "longitude": {
@@ -280,9 +299,8 @@
       "data": {
         "values": [
           {
-            "lon": 113.4,
-            "lat": -11.0,
-            "t": "Queensland: most nights"
+            "t": "Queensland: most nights",
+            "y": 12
           }
         ]
       },
@@ -292,18 +310,17 @@
         "baseline": "middle",
         "fontSize": 12,
         "fontWeight": "bold",
-        "fontStyle": "normal",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+        "x": {
+          "value": 6
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
         },
         "text": {
           "field": "t",
@@ -315,9 +332,12 @@
       "data": {
         "values": [
           {
-            "lon": 113.4,
-            "lat": -12.9,
-            "t": "(92.0m), though Victoria"
+            "t": "(92.0m), though Victoria",
+            "y": 29
+          },
+          {
+            "t": "has more trips (31.0m)",
+            "y": 45
           }
         ]
       },
@@ -327,18 +347,17 @@
         "baseline": "middle",
         "fontSize": 12,
         "fontWeight": "normal",
-        "fontStyle": "normal",
         "color": "#25344F",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+        "x": {
+          "value": 6
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
         },
         "text": {
           "field": "t",
@@ -350,9 +369,7 @@
       "data": {
         "values": [
           {
-            "lon": 113.4,
-            "lat": -14.8,
-            "t": "has more trips (31.0m)"
+            "t": "Nights away (millions)"
           }
         ]
       },
@@ -361,22 +378,121 @@
         "align": "left",
         "baseline": "middle",
         "fontSize": 12,
-        "fontWeight": "normal",
-        "fontStyle": "normal",
+        "fontWeight": "bold",
         "color": "#25344F",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+        "x": {
+          "value": 6
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
+        "y": {
+          "value": 376
         },
         "text": {
           "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 10,
+            "x": 24
+          },
+          {
+            "v": 50,
+            "x": 78
+          },
+          {
+            "v": 100,
+            "x": 152
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "5200*datum.v/120",
+          "as": "area"
+        },
+        {
+          "calculate": "sqrt(datum.area/PI)",
+          "as": "r"
+        },
+        {
+          "calculate": "464-datum.r",
+          "as": "y"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "fill": "#617891",
+        "fillOpacity": 0.25,
+        "stroke": "#617891",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
+        },
+        "size": {
+          "field": "area",
+          "type": "quantitative",
+          "scale": null,
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": "10",
+            "x": 24,
+            "y": 452
+          },
+          {
+            "v": "50",
+            "x": 78,
+            "y": 438
+          },
+          {
+            "v": "100",
+            "x": 152,
+            "y": 427
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 11,
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "v",
           "type": "nominal"
         }
       }

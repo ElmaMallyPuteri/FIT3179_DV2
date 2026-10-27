@@ -11,14 +11,14 @@
     "contains": "padding"
   },
   "config": {
-    "font": "Arial, Helvetica, sans-serif",
+    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
     "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
@@ -28,20 +28,20 @@
       "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
       "color": "#25344F",
-      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "subtitleFontSize": 12,
       "subtitleColor": "#617891",
       "subtitlePadding": 4,
@@ -157,11 +157,11 @@
               "#25344F",
               "#6F4D38",
               "#632024",
-              "#D5B893",
-              "#D5B893",
-              "#D5B893",
-              "#D5B893",
-              "#D5B893"
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66"
             ]
           }
         },
@@ -181,7 +181,7 @@
           {
             "field": "spend_m",
             "title": "Spending ($m)",
-            "format": ","
+            "format": ",.0f"
           }
         ]
       }
@@ -263,11 +263,11 @@
               "#25344F",
               "#6F4D38",
               "#632024",
-              "#D5B893",
-              "#D5B893",
-              "#D5B893",
-              "#D5B893",
-              "#D5B893"
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66"
             ]
           }
         },
@@ -287,7 +287,7 @@
           {
             "field": "spend_m",
             "title": "Spending ($m)",
-            "format": ","
+            "format": ",.0f"
           }
         ]
       }
@@ -304,7 +304,7 @@
         "dx": -12,
         "fontSize": 12,
         "fontWeight": "bold",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -373,11 +373,11 @@
               "#25344F",
               "#6F4D38",
               "#632024",
-              "#617891",
-              "#617891",
-              "#617891",
-              "#617891",
-              "#617891"
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66"
             ]
           }
         }
@@ -395,7 +395,7 @@
         "dx": 12,
         "fontSize": 12,
         "fontWeight": "bold",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -464,11 +464,11 @@
               "#25344F",
               "#6F4D38",
               "#632024",
-              "#617891",
-              "#617891",
-              "#617891",
-              "#617891",
-              "#617891"
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66",
+              "#8F7F66"
             ]
           }
         }
@@ -490,7 +490,7 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#25344F",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -558,7 +558,7 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#6F4D38",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {

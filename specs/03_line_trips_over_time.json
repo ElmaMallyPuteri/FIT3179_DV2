@@ -11,14 +11,14 @@
     "contains": "padding"
   },
   "config": {
-    "font": "Arial, Helvetica, sans-serif",
+    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
     "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
@@ -28,20 +28,20 @@
       "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
       "color": "#25344F",
-      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "subtitleFontSize": 12,
       "subtitleColor": "#617891",
       "subtitlePadding": 4,
@@ -163,7 +163,7 @@
         "fontSize": 14,
         "fontWeight": "bold",
         "color": "#25344F",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -217,7 +217,7 @@
         "fontSize": 13,
         "fontWeight": "bold",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -274,7 +274,7 @@
         "fontSize": 12,
         "color": "#6F4D38",
         "fontStyle": "italic",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {

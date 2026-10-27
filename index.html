@@ -11,6 +11,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Public+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%90%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -86,11 +93,11 @@
               The ACT is too small to see, so it is marked with a ring.
             </p>
           </div>
-          <div class="fig"><div id="c01"></div></div>
+          <div class="fig"><div id="c01" role="img" aria-label="Map of Australia shading each state by overnight trips per 1,000 residents. Tasmania is highest at 5,068 and Western Australia lowest at 3,208."></div></div>
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c02"></div></div>
+          <div class="fig"><div id="c02" role="img" aria-label="Heatmap of each state’s overnight trips in four quarters compared with its own average. The Northern Territory is far above average in July to September and far below in January to March."></div></div>
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
             <h3>Most states peak in summer, but the Northern Territory empties out</h3>
@@ -121,11 +128,11 @@
               estimate.
             </p>
           </div>
-          <div class="fig"><div id="c03"></div></div>
+          <div class="fig"><div id="c03" role="img" aria-label="Area chart of caravan and camping trips in millions: 15.2 in 2024, 17.3 in 2025 and 17.7 in the year to March 2026."></div></div>
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c04"></div></div>
+          <div class="fig"><div id="c04" role="img" aria-label="Map of Australia with a circle on each state sized by nights spent away. Queensland has the most at 92.0 million, then New South Wales and Victoria."></div></div>
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
             <h3>Queensland wins on nights away, even though Victoria gets more trips</h3>
@@ -149,7 +156,7 @@
         <h2>Who goes, and why?</h2>
 
         <div class="row">
-          <div class="fig"><div id="c05"></div></div>
+          <div class="fig"><div id="c05" role="img" aria-label="Waffle chart of 100 squares: 80 holiday trips, 12 visits to friends and relatives and 8 other reasons."></div></div>
           <div class="txt">
             <span class="tag tag-van">Caravan and camping trips</span>
             <h3>Four in five caravan and camping trips are holidays</h3>
@@ -175,7 +182,7 @@
               The parks’ share climbs from 67% of trips to 70% of nights to 75% of spending.
             </p>
           </div>
-          <div class="fig"><div id="c06"></div></div>
+          <div class="fig"><div id="c06" role="img" aria-label="Stacked bars showing commercial caravan parks take 67% of trips, 70% of nights and 75% of spending."></div></div>
         </div>
       </div>
     </section>
@@ -185,7 +192,7 @@
       <div class="wrap">
         <h2>Big states, small states</h2>
         <div class="row">
-          <div class="fig"><div id="c07"></div></div>
+          <div class="fig"><div id="c07" role="img" aria-label="Tile map with one equal square per state showing average nights per trip. The Northern Territory is longest at 4.3 and Victoria and the ACT shortest at 2.8."></div></div>
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
             <h3>Trips are shortest in the south-east and longest in the Territory</h3>
@@ -222,11 +229,11 @@
               bush camps.
             </p>
           </div>
-          <div class="fig"><div id="c08"></div></div>
+          <div class="fig"><div id="c08" role="img" aria-label="Dot map of 9,782 caravan parks and campsites across Australia, clustered along the coast and sparse in the outback."></div></div>
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c09"></div></div>
+          <div class="fig"><div id="c09" role="img" aria-label="Map of four classic road trip routes: Great Ocean Road, Nullarbor, Stuart Highway and the Big Lap around the country."></div></div>
           <div class="txt">
             <span class="tag tag-map">Simplified routes</span>
             <h3>Classic routes range from a coastal weekend to a lap of the country</h3>
@@ -259,11 +266,11 @@
               top spot back. Victoria climbed to second in January to March, its summer peak.
             </p>
           </div>
-          <div class="fig"><div id="c10"></div></div>
+          <div class="fig"><div id="c10" role="img" aria-label="Bump chart ranking states by visitor spending in four quarters. Queensland leads in July to September, then New South Wales takes first place."></div></div>
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c11"></div></div>
+          <div class="fig"><div id="c11" role="img" aria-label="Parallel coordinates chart comparing the eight states on trip length, spending per trip, spending per night and trips per resident. The Northern Territory tops three measures."></div></div>
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
             <h3>The Northern Territory is the longest-stay, highest-spending destination</h3>
@@ -277,6 +284,36 @@
               The Northern Territory tops trip length (4.3 nights), spending per trip ($1,811) and
               spending per night ($422). Tasmania leads on trips per resident. Victoria has the
               cheapest trips at $758 each.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CLOSING: three takeaways ===== -->
+    <section class="alt">
+      <div class="wrap">
+        <h2>What the road tells us</h2>
+        <div class="takeaways">
+          <div>
+            <b>Where</b>
+            <p>
+              Small states punch above their weight. Tasmania sees 5,068 trips per 1,000 residents,
+              against 3,208 in Western Australia.
+            </p>
+          </div>
+          <div>
+            <b>When and how long</b>
+            <p>
+              Seasons and distance shape the trip. The Northern Territory has the longest stays
+              (4.3 nights) and Victoria and the ACT the shortest (2.8).
+            </p>
+          </div>
+          <div>
+            <b>Why</b>
+            <p>
+              Four in five caravan and camping trips are holidays, and commercial parks take 75% of
+              the spending from 67% of the trips.
             </p>
           </div>
         </div>
@@ -304,7 +341,8 @@
             >National, state and territory population, March 2026</a
           >
           (released 17 September 2026, CC BY 4.0). Used to turn trip totals into trips per 1,000
-          residents.
+          residents (<code>data/state_population.csv</code>, combined with the TRA totals by
+          <code>tools/make_state_metrics.py</code>).
         </p>
         <p>
           <b>Maps:</b> ABS Australian Statistical Geography Standard 2021 state boundaries (CC BY
@@ -318,16 +356,18 @@
           <b>Author:</b> Elma Mally Puteri (ID: 35551410), Monash University, FIT3179 Data Visualisation 2,
           Semester 2, 2026. Published October 2026.
           <b>Source code:</b>
-          <a href="https://github.com/ElmaMallyPuteri/FIT3179_DV2">[GitHub repository URL]</a>.
+          <a href="https://github.com/ElmaMallyPuteri/FIT3179_DV2">github.com/ElmaMallyPuteri/FIT3179_DV2</a>. Every chart’s Vega-Lite JSON is in the <code>specs</code> folder.
         </p>
         <p>
           <b>AI acknowledgement:</b> Claude (Anthropic) was used to help review the code, chart
-          specifications and text on this page. All data comes from the sources above. Charts are
+          specifications and text on this page, and to diagnose and fix chart loading and layout
+          problems. All data comes from the sources above. Charts are
           built with Vega-Lite.
         </p>
       </div>
     </footer>
 
+    <noscript><p class="wrap">This page needs JavaScript to draw its charts.</p></noscript>
     <script src="js/main.js"></script>
   </body>
 </html>

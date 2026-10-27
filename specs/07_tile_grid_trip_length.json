@@ -10,14 +10,14 @@
     "type": "pad"
   },
   "config": {
-    "font": "Arial, Helvetica, sans-serif",
+    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
     "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
@@ -27,20 +27,20 @@
       "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Arial, Helvetica, sans-serif",
-      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
+      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#25344F",
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
       "color": "#25344F",
-      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
       "subtitleFontSize": 12,
       "subtitleColor": "#617891",
       "subtitlePadding": 4,
@@ -112,7 +112,8 @@
               "#D5B893",
               "#617891",
               "#25344F"
-            ]
+            ],
+            "interpolate": "lab"
           },
           "title": "Nights per trip",
           "legend": {
@@ -146,7 +147,7 @@
         "fontSize": 16,
         "fontWeight": "bold",
         "dy": -10,
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -190,7 +191,7 @@
         "type": "text",
         "fontSize": 15,
         "dy": 11,
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -245,7 +246,7 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -275,7 +276,7 @@
         "fontSize": 12,
         "fontWeight": "normal",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -305,7 +306,7 @@
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -335,7 +336,7 @@
         "fontSize": 12,
         "fontWeight": "normal",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
@@ -365,7 +366,7 @@
         "fontSize": 12,
         "fontWeight": "normal",
         "color": "#632024",
-        "font": "Arial, Helvetica, sans-serif"
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },
       "encoding": {
         "x": {
