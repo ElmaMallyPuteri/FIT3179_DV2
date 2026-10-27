@@ -1,0 +1,458 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Average nights per trip, by season",
+    "subtitle": "All overnight trips, July 2025 to June 2026. Darker means longer trips."
+  },
+  "columns": 2,
+  "concat": [
+    {
+      "width": 205,
+      "height": 175,
+      "projection": {
+        "type": "conicEqualArea",
+        "rotate": [
+          -134,
+          0
+        ],
+        "parallels": [
+          -18,
+          -36
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/australia_states.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "STE_2021_AUST_GDA94"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+            },
+            {
+              "lookup": "properties.STE_NAME21",
+              "from": {
+                "data": {
+                  "url": "data/state_quarter_nights.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "Jul to Sep": "number",
+                      "Oct to Dec": "number",
+                      "Jan to Mar": "number",
+                      "Apr to Jun": "number"
+                    }
+                  }
+                },
+                "key": "state",
+                "fields": [
+                  "Jul to Sep",
+                  "Oct to Dec",
+                  "Jan to Mar",
+                  "Apr to Jun"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "color": {
+              "field": "Jul to Sep",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "range": [
+                  "#F3EBDD",
+                  "#D5B893",
+                  "#617891",
+                  "#25344F"
+                ],
+                "interpolate": "lab",
+                "clamp": true
+              },
+              "title": "Average nights per trip",
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 220,
+                "values": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "format": ".1f"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.STE_NAME21",
+                "title": "State"
+              },
+              {
+                "field": "Jul to Sep",
+                "type": "quantitative",
+                "title": "Nights per trip",
+                "format": ".1f"
+              }
+            ]
+          }
+        }
+      ],
+      "title": {
+        "text": "Jul to Sep",
+        "anchor": "start",
+        "fontSize": 14
+      }
+    },
+    {
+      "width": 205,
+      "height": 175,
+      "projection": {
+        "type": "conicEqualArea",
+        "rotate": [
+          -134,
+          0
+        ],
+        "parallels": [
+          -18,
+          -36
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/australia_states.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "STE_2021_AUST_GDA94"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+            },
+            {
+              "lookup": "properties.STE_NAME21",
+              "from": {
+                "data": {
+                  "url": "data/state_quarter_nights.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "Jul to Sep": "number",
+                      "Oct to Dec": "number",
+                      "Jan to Mar": "number",
+                      "Apr to Jun": "number"
+                    }
+                  }
+                },
+                "key": "state",
+                "fields": [
+                  "Jul to Sep",
+                  "Oct to Dec",
+                  "Jan to Mar",
+                  "Apr to Jun"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "color": {
+              "field": "Oct to Dec",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "range": [
+                  "#F3EBDD",
+                  "#D5B893",
+                  "#617891",
+                  "#25344F"
+                ],
+                "interpolate": "lab",
+                "clamp": true
+              },
+              "title": "Average nights per trip",
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 220,
+                "values": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "format": ".1f"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.STE_NAME21",
+                "title": "State"
+              },
+              {
+                "field": "Oct to Dec",
+                "type": "quantitative",
+                "title": "Nights per trip",
+                "format": ".1f"
+              }
+            ]
+          }
+        }
+      ],
+      "title": {
+        "text": "Oct to Dec",
+        "anchor": "start",
+        "fontSize": 14
+      }
+    },
+    {
+      "width": 205,
+      "height": 175,
+      "projection": {
+        "type": "conicEqualArea",
+        "rotate": [
+          -134,
+          0
+        ],
+        "parallels": [
+          -18,
+          -36
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/australia_states.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "STE_2021_AUST_GDA94"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+            },
+            {
+              "lookup": "properties.STE_NAME21",
+              "from": {
+                "data": {
+                  "url": "data/state_quarter_nights.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "Jul to Sep": "number",
+                      "Oct to Dec": "number",
+                      "Jan to Mar": "number",
+                      "Apr to Jun": "number"
+                    }
+                  }
+                },
+                "key": "state",
+                "fields": [
+                  "Jul to Sep",
+                  "Oct to Dec",
+                  "Jan to Mar",
+                  "Apr to Jun"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "color": {
+              "field": "Jan to Mar",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "range": [
+                  "#F3EBDD",
+                  "#D5B893",
+                  "#617891",
+                  "#25344F"
+                ],
+                "interpolate": "lab",
+                "clamp": true
+              },
+              "title": "Average nights per trip",
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 220,
+                "values": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "format": ".1f"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.STE_NAME21",
+                "title": "State"
+              },
+              {
+                "field": "Jan to Mar",
+                "type": "quantitative",
+                "title": "Nights per trip",
+                "format": ".1f"
+              }
+            ]
+          }
+        }
+      ],
+      "title": {
+        "text": "Jan to Mar",
+        "anchor": "start",
+        "fontSize": 14
+      }
+    },
+    {
+      "width": 205,
+      "height": 175,
+      "projection": {
+        "type": "conicEqualArea",
+        "rotate": [
+          -134,
+          0
+        ],
+        "parallels": [
+          -18,
+          -36
+        ]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/australia_states.topojson",
+            "format": {
+              "type": "topojson",
+              "feature": "STE_2021_AUST_GDA94"
+            }
+          },
+          "transform": [
+            {
+              "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+            },
+            {
+              "lookup": "properties.STE_NAME21",
+              "from": {
+                "data": {
+                  "url": "data/state_quarter_nights.csv",
+                  "format": {
+                    "type": "csv",
+                    "parse": {
+                      "Jul to Sep": "number",
+                      "Oct to Dec": "number",
+                      "Jan to Mar": "number",
+                      "Apr to Jun": "number"
+                    }
+                  }
+                },
+                "key": "state",
+                "fields": [
+                  "Jul to Sep",
+                  "Oct to Dec",
+                  "Jan to Mar",
+                  "Apr to Jun"
+                ]
+              }
+            }
+          ],
+          "mark": {
+            "type": "geoshape",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "color": {
+              "field": "Apr to Jun",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "range": [
+                  "#F3EBDD",
+                  "#D5B893",
+                  "#617891",
+                  "#25344F"
+                ],
+                "interpolate": "lab",
+                "clamp": true
+              },
+              "title": "Average nights per trip",
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 220,
+                "values": [
+                  2.5,
+                  3.3,
+                  4.1,
+                  4.9
+                ],
+                "format": ".1f"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "properties.STE_NAME21",
+                "title": "State"
+              },
+              {
+                "field": "Apr to Jun",
+                "type": "quantitative",
+                "title": "Nights per trip",
+                "format": ".1f"
+              }
+            ]
+          }
+        }
+      ],
+      "title": {
+        "text": "Apr to Jun",
+        "anchor": "start",
+        "fontSize": 14
+      }
+    }
+  ]
+}

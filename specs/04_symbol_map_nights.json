@@ -103,7 +103,7 @@
         },
         "color": {
           "condition": {
-            "test": "datum.abbr == 'QLD'",
+            "test": "datum.abbr == 'NSW'",
             "value": "#632024"
           },
           "value": "#617891"
@@ -261,8 +261,8 @@
       "data": {
         "values": [
           {
-            "t": "Queensland: most nights",
-            "y": 12
+            "t": "New South Wales: most nights (119.2m)",
+            "y": 10
           }
         ]
       },
@@ -294,11 +294,11 @@
       "data": {
         "values": [
           {
-            "t": "(92.0m), though Victoria",
+            "t": "Queensland (92.0m) has more nights",
             "y": 29
           },
           {
-            "t": "has more trips (31.0m)",
+            "t": "than Victoria (86.5m), with fewer trips",
             "y": 45
           }
         ]

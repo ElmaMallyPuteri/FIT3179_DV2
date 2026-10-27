@@ -177,7 +177,77 @@
           "type": "quantitative",
           "format": ",.0f"
         }
-      }
+      },
+      "transform": [
+        {
+          "filter": "datum.sites_per_million_trips < 50 || datum.sites_per_million_trips > 100"
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "field": "abbr",
+          "type": "nominal",
+          "sort": [
+            "NT",
+            "TAS",
+            "SA",
+            "WA",
+            "QLD",
+            "VIC",
+            "NSW",
+            "ACT"
+          ],
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+          }
+        },
+        "x": {
+          "field": "sites_per_million_trips",
+          "type": "quantitative",
+          "title": "Mapped sites per million overnight trips",
+          "scale": {
+            "domain": [
+              0,
+              480
+            ]
+          },
+          "axis": {
+            "values": [
+              0,
+              100,
+              200,
+              300,
+              400
+            ],
+            "grid": true
+          }
+        },
+        "text": {
+          "field": "sites_per_million_trips",
+          "type": "quantitative",
+          "format": ",.0f"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.sites_per_million_trips >= 50 && datum.sites_per_million_trips <= 100"
+        }
+      ]
     },
     {
       "transform": [

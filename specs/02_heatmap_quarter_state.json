@@ -111,7 +111,8 @@
               "#F3EBDD",
               "#25344F"
             ],
-            "clamp": true
+            "clamp": true,
+            "interpolate": "lab"
           },
           "title": "Trips compared with the state’s own average (%)",
           "legend": {

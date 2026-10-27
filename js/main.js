@@ -14,7 +14,7 @@ const charts = [
   "07_tile_grid_trip_length",
   "08_dot_map_sites",
   "09_route_site_density",
-  "10_bump_rank",
+  "10_seasonal_trip_length_maps",
   "11_parallel_coordinates",
   "12_gap_map_nearest_site",
 ];

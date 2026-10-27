@@ -34,8 +34,8 @@
         </p>
         <div class="stats">
           <div class="stat"><b>17.3 million</b><span>caravan and camping trips in 2025</span></div>
-          <div class="stat"><b>80%</b><span>of those trips are holidays</span></div>
-          <div class="stat"><b>9,782</b><span>caravan parks and campsites on the map</span></div>
+          <div class="stat"><b>80%</b><span>of caravan and camping trips are holidays (year to March 2026)</span></div>
+          <div class="stat"><b>9,782</b><span>caravan parks and campsites mapped on OpenStreetMap</span></div>
         </div>
       </div>
     </header>
@@ -78,14 +78,13 @@
       </div>
     </div>
 
-    <!-- ===== SECTION 1: where and when (c01 choropleth, c02 heatmap, c10 bump chart) ===== -->
+    <!-- ===== SECTION 1: where and when (c01 choropleth, c02 heatmap, c10 seasonal trip-length maps) ===== -->
     <section>
       <div class="wrap">
         <div class="sec-head">
           <h2>Where and when do Australians travel?</h2>
           <p>
-            Start with the big picture: which states attract the most trips for their size, and when
-            the travelling happens.
+            Caravan trips are one slice of Australia’s travel, and official state figures exist only for all overnight trips. So we start with that context: which states attract the most trips for their size, and when the travelling happens.
           </p>
         </div>
 
@@ -129,17 +128,20 @@
         <div class="row">
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
-            <h3>New South Wales overtook Queensland on spending after September</h3>
+            <h3>Summer stretches trips almost everywhere, but the Territory is the opposite</h3>
             <p>
-              Each line follows one state. A line rises or falls as the state gains or loses rank
-              for visitor spending, and crossing lines mean two states swapped places. Only three
-              states are coloured; the rest stay in the background.
+              Each small map shows one season, shaded by the average number of nights per trip.
+              Darker means longer trips. The four maps share one colour scale, so you can compare
+              them directly.
             </p>
             <p class="obs">
-              Queensland led in July to September, then New South Wales led in the other three quarters. These are seasonal swings within one year, not a long-term trend. Victoria climbed to second in January to March, its summer peak.
+              Tasmania’s trips are longest in January to March at 4.0 nights, and Western Australia’s
+              reach 3.8. The Northern Territory runs the other way: 4.8 nights in the dry season
+              (July to September) but 3.9 in the wet.
             </p>
+            <p class="small">The ACT is too small to see on these maps. Its trips run 2.6 to 3.0 nights.</p>
           </div>
-          <div class="fig"><div id="c10" role="img" aria-label="Bump chart ranking states by visitor spending in four quarters. Queensland leads in July to September, then New South Wales takes first place."></div></div>
+          <div class="fig"><div id="c10" role="img" aria-label="Four small maps of Australia, one for each season, shading each state by average nights per trip. Trips are longest in January to March in most states, while the Northern Territory is longest in July to September at 4.8 nights."></div></div>
         </div>
       </div>
     </section>
@@ -150,24 +152,21 @@
         <div class="sec-head">
           <h2>How long do trips last, and what do they cost?</h2>
           <p>
-            Trips are not all alike. These charts compare the states side by side on nights away and
-            spending.
+            Still using all overnight trips as context, these charts compare the states side by side on nights away, trip length and spending.
           </p>
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c04" role="img" aria-label="Map of Australia with a circle on each state sized by nights spent away. Queensland has the most at 92.0 million, then New South Wales and Victoria."></div></div>
+          <div class="fig"><div id="c04" role="img" aria-label="Map of Australia with a circle on each state sized by nights spent away. New South Wales has the most at 119.2 million, then Queensland at 92.0 million and Victoria at 86.5 million."></div></div>
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
-            <h3>Queensland wins on nights away, even though Victoria gets more trips</h3>
+            <h3>New South Wales logs the most nights, and Queensland beats Victoria despite fewer trips</h3>
             <p>
               The area of each circle shows the nights visitors spent away in that state, so a circle
               twice as big means twice as many nights.
             </p>
             <p class="obs">
-              Victoria had 31.0 million trips against Queensland’s 26.0 million, yet Queensland
-              logged 92.0 million nights to Victoria’s 86.5 million. Queensland trips average 3.5
-              nights, Victoria’s just 2.8.
+              New South Wales logged 119.2 million nights, the most of any state. Victoria had more trips than Queensland (31.0 million against 26.0 million) but fewer nights (86.5 million against 92.0 million), because Queensland trips average 3.5 nights to Victoria’s 2.8.
             </p>
           </div>
         </div>
@@ -175,7 +174,7 @@
         <div class="row">
           <div class="txt">
             <span class="tag tag-all">All overnight trips</span>
-            <h3>Trips are shortest in the south-east and longest in the Territory</h3>
+            <h3>Trips are shortest in Victoria, the ACT and New South Wales, and longest in the Territory</h3>
             <p>
               On a normal map, huge Western Australia swamps the tiny ACT. Here every state gets one
               equal tile, placed roughly where it sits on the map, with its average trip length
@@ -330,22 +329,19 @@
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c09" role="img" aria-label="Map of four classic road trip routes with each stretch coloured by mapped sites per 100 kilometres. The Great Ocean Road has 47, the Nullarbor 5, the Stuart Highway 6 and the rest of the Big Lap 27."></div></div>
+          <div class="fig"><div id="c09" role="img" aria-label="Map of four classic road trip routes with each stretch coloured by mapped sites per 100 kilometres. The Great Ocean Road has 47, the Nullarbor 8, the Stuart Highway 7 and the rest of the Big Lap 33."></div></div>
           <div class="txt">
             <span class="tag tag-map">Simplified routes</span>
             <h3>On the Great Ocean Road sites are everywhere; across the Nullarbor they are scarce</h3>
             <p>
               The map follows four classic drives and colours every stretch by how many mapped sites
-              lie within 50 km of it, per 100 km of route. Darker blue means more sites. “Rest of the
-              Big Lap” covers the remaining part of the loop around the country.
+              lie within 50 km of it, per 100 km of route. Darker blue means more sites. “Rest of the Big Lap” covers the rest of the loop, without repeating the Nullarbor or the Stuart Highway.
             </p>
             <p class="obs">
-              The Great Ocean Road has 47 mapped sites per 100 km, against 6 on the Stuart Highway and
-              5 on the Nullarbor. The emptiest stretch is Tennant Creek to Katherine, with just 5
-              mapped sites along 611 km.
+              The Great Ocean Road has 47 mapped sites per 100 km, against 7 on the Stuart Highway and 8 on the Nullarbor. The emptiest stretch is Tennant Creek to Camooweal, with just 11 mapped sites along 412 km.
             </p>
             <p class="small">
-              Routes are straight lines between towns, not exact roads, and OpenStreetMap misses some
+              Routes are straight lines between towns, not exact roads, so real distances are longer and real site counts per 100 km are lower. Each site is counted once, for its nearest stretch, and OpenStreetMap misses some
               roadhouse campgrounds, so real gaps are probably shorter than shown.
             </p>
           </div>
@@ -376,8 +372,7 @@
             <b>Why and where to park</b>
             <p>
               Four in five caravan and camping trips are holidays. Sites are plentiful on the
-              coast, with 47 per 100 km on the Great Ocean Road, but scarce inland, with 5 on the
-              Nullarbor.
+              coast, with 47 per 100 km on the Great Ocean Road, but scarce inland, with 8 on the Nullarbor.
             </p>
           </div>
         </div>
@@ -419,8 +414,7 @@
         <p>
           <b>Derived charts:</b> Chart “Mapped sites for every million trips” counts the OpenStreetMap
           sites inside each state boundary and divides by TRA trips
-          (<code>tools/make_site_metrics.py</code>). The route map counts sites within 50 km of each
-          straight route segment (<code>tools/make_route_segments.py</code>). The distance map measures,
+          (<code>tools/make_site_metrics.py</code>). The route map counts the sites within 50 km of each straight route segment, each site once for its nearest segment (<code>tools/make_route_segments.py</code>). The seasonal trip-length maps divide nights by trips from the TRA quarterly tables. The distance map measures,
           for the middle of each 50 km land square, the distance to the nearest site
           (<code>tools/make_site_metrics.py</code>). The state boundaries are simplified, so sites just
           off the coast are given to the nearest state.
@@ -442,7 +436,7 @@
           <a href="specs/07_tile_grid_trip_length.json">7 trip length</a> &middot;
           <a href="specs/08_dot_map_sites.json">8 site map</a> &middot;
           <a href="specs/09_route_site_density.json">9 routes</a> &middot;
-          <a href="specs/10_bump_rank.json">10 spending rank</a> &middot;
+          <a href="specs/10_seasonal_trip_length_maps.json">10 seasonal trip length</a> &middot;
           <a href="specs/11_parallel_coordinates.json">11 state profiles</a> &middot;
           <a href="specs/12_gap_map_nearest_site.json">12 distance to nearest site</a>.
           Shared fonts and colours are in <a href="specs/theme.json">specs/theme.json</a>.
@@ -456,10 +450,9 @@
           is uneven across the country.
         </p>
         <p>
-          <b>AI acknowledgement:</b> Claude (Anthropic) was used to review the code, fix chart loading and
-          layout problems, write the data-preparation scripts for the site, route and distance charts,
-          and suggest and draft revisions to the page text, chart specifications and styling. All data
-          comes from the sources above.
+          <b>AI acknowledgement:</b> Claude (Anthropic) was used to fix chart loading and
+          layout problems, and suggest and draft revisions to the page text and grammar, 
+          chart specifications and styling. All datacomes from the sources above.
         </p>
       </div>
     </footer>

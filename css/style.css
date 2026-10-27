@@ -314,3 +314,9 @@ footer code {
   }
 }
 
+
+/* Wider chart column: the chart takes 7 of 12 parts, the text 5 */
+@media (min-width: 801px) {
+  .row:has(> .fig:first-child) { grid-template-columns: 7fr 5fr; }
+  .row:has(> .fig:last-child) { grid-template-columns: 5fr 7fr; }
+}

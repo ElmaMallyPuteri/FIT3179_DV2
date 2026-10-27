@@ -4,21 +4,21 @@
     "gridColor": "#E6DCCB",
     "labelColor": "#25344F",
     "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "labelFontSize": 12,
+    "labelFontSize": 13,
     "tickColor": "#617891",
     "titleColor": "#25344F",
     "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "titleFontSize": 12
+    "titleFontSize": 13
   },
   "background": "#FFFDF8",
   "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
   "legend": {
     "labelColor": "#25344F",
     "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "labelFontSize": 12,
+    "labelFontSize": 13,
     "titleColor": "#25344F",
     "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "titleFontSize": 12
+    "titleFontSize": 13
   },
   "title": {
     "anchor": "start",
@@ -29,7 +29,7 @@
     "offset": 10,
     "subtitleColor": "#617891",
     "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "subtitleFontSize": 12,
+    "subtitleFontSize": 13,
     "subtitlePadding": 4
   },
   "view": {

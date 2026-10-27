@@ -1,46 +1,44 @@
 route,seg,from_place,to_place,lon0,lat0,lon1,lat1,km,sites,sites_per_100km
-Great Ocean Road,0,Torquay,Lorne,144.33,-38.33,143.97,-38.54,39,27,69.1
-Great Ocean Road,1,Lorne,Apollo Bay,143.97,-38.54,143.67,-38.76,36,20,56.0
+Great Ocean Road,0,Torquay,Lorne,144.33,-38.33,143.97,-38.54,39,27,69.2
+Great Ocean Road,1,Lorne,Apollo Bay,143.97,-38.54,143.67,-38.76,36,20,55.6
 Great Ocean Road,2,Apollo Bay,Port Campbell,143.67,-38.76,142.99,-38.62,61,28,45.9
-Great Ocean Road,3,Port Campbell,Warrnambool,142.99,-38.62,142.48,-38.38,52,13,25.1
-Nullarbor (Eyre Highway),4,Norseman,Balladonia,121.77,-32.2,123.5,-32.35,163,3,1.8
-Nullarbor (Eyre Highway),5,Balladonia,Eucla,123.5,-32.35,128.9,-31.68,514,24,4.7
+Great Ocean Road,3,Port Campbell,Warrnambool,142.99,-38.62,142.48,-38.38,52,13,25.0
+Nullarbor (Eyre Highway),4,Norseman,Balladonia,121.77,-32.2,123.5,-32.35,163,16,9.8
+Nullarbor (Eyre Highway),5,Balladonia,Eucla,123.5,-32.35,128.9,-31.68,514,30,5.8
 Nullarbor (Eyre Highway),6,Eucla,Nullarbor Roadhouse,128.9,-31.68,130.9,-31.45,191,19,9.9
 Nullarbor (Eyre Highway),7,Nullarbor Roadhouse,Ceduna,130.9,-31.45,133.67,-32.12,272,21,7.7
-Nullarbor (Eyre Highway),8,Ceduna,Port Augusta,133.67,-32.12,137.77,-32.49,387,13,3.4
+Nullarbor (Eyre Highway),8,Ceduna,Port Augusta,133.67,-32.12,137.77,-32.49,387,39,10.1
 Stuart Highway,9,Port Augusta,Coober Pedy,137.77,-32.49,134.75,-29.01,483,29,6.0
 Stuart Highway,10,Coober Pedy,Alice Springs,134.75,-29.01,133.88,-23.7,597,37,6.2
 Stuart Highway,11,Alice Springs,Tennant Creek,133.88,-23.7,134.19,-19.65,451,16,3.5
-Stuart Highway,12,Tennant Creek,Katherine,134.19,-19.65,132.26,-14.47,611,5,0.8
+Stuart Highway,12,Tennant Creek,Katherine,134.19,-19.65,132.26,-14.47,611,24,3.9
 Stuart Highway,13,Katherine,Darwin,132.26,-14.47,130.84,-12.46,271,65,24.0
 Rest of the Big Lap,14,Warrnambool,Portland,142.48,-38.38,141.6,-38.35,77,23,29.9
-Rest of the Big Lap,15,Portland,Mount Gambier,141.6,-38.35,140.78,-37.83,92,57,61.9
+Rest of the Big Lap,15,Portland,Mount Gambier,141.6,-38.35,140.78,-37.83,92,57,62.0
 Rest of the Big Lap,16,Mount Gambier,Meningie,140.78,-37.83,139.34,-35.69,270,84,31.1
 Rest of the Big Lap,17,Meningie,Adelaide,139.34,-35.69,138.6,-34.93,108,81,75.0
-Rest of the Big Lap,18,Adelaide,Port Augusta,138.6,-34.93,137.77,-32.49,282,147,52.1
-Rest of the Big Lap,19,Port Augusta,Norseman,137.77,-32.49,121.77,-32.2,1502,59,3.9
-Rest of the Big Lap,20,Norseman,Kalgoorlie,121.77,-32.2,121.47,-30.75,164,11,6.7
-Rest of the Big Lap,21,Kalgoorlie,Perth,121.47,-30.75,115.86,-31.95,549,104,18.9
-Rest of the Big Lap,22,Perth,Geraldton,115.86,-31.95,114.61,-28.78,372,68,18.3
-Rest of the Big Lap,23,Geraldton,Carnarvon,114.61,-28.78,113.66,-24.88,444,58,13.1
-Rest of the Big Lap,24,Carnarvon,Port Hedland,113.66,-24.88,118.6,-20.31,718,23,3.2
-Rest of the Big Lap,25,Port Hedland,Broome,118.6,-20.31,122.24,-17.96,463,19,4.1
-Rest of the Big Lap,26,Broome,Halls Creek,122.24,-17.96,127.67,-18.23,575,20,3.5
-Rest of the Big Lap,27,Halls Creek,Kununurra,127.67,-18.23,128.74,-15.77,296,37,12.5
-Rest of the Big Lap,28,Kununurra,Katherine,128.74,-15.77,132.26,-14.47,405,16,4.0
-Rest of the Big Lap,29,Katherine,Tennant Creek,132.26,-14.47,134.19,-19.65,611,19,3.1
-Rest of the Big Lap,30,Tennant Creek,Camooweal,134.19,-19.65,138.12,-19.92,412,11,2.7
-Rest of the Big Lap,31,Camooweal,Mount Isa,138.12,-19.92,139.49,-20.73,169,5,3.0
-Rest of the Big Lap,32,Mount Isa,Hughenden,139.49,-20.73,144.2,-20.84,490,27,5.5
-Rest of the Big Lap,33,Hughenden,Townsville,144.2,-20.84,146.82,-19.26,325,52,16.0
-Rest of the Big Lap,34,Townsville,Mackay,146.82,-19.26,149.18,-21.14,323,98,30.3
-Rest of the Big Lap,35,Mackay,Rockhampton,149.18,-21.14,150.51,-23.38,284,47,16.5
-Rest of the Big Lap,36,Rockhampton,Bundaberg,150.51,-23.38,152.35,-24.87,250,78,31.2
-Rest of the Big Lap,37,Bundaberg,Brisbane,152.35,-24.87,153.03,-27.47,297,367,123.6
-Rest of the Big Lap,38,Brisbane,Coffs Harbour,153.03,-27.47,153.11,-30.3,315,314,99.8
-Rest of the Big Lap,39,Coffs Harbour,Newcastle,153.11,-30.3,151.78,-32.93,318,255,80.1
-Rest of the Big Lap,40,Newcastle,Sydney,151.78,-32.93,151.21,-33.87,117,130,111.0
-Rest of the Big Lap,41,Sydney,Batemans Bay,151.21,-33.87,150.18,-35.71,225,239,106.1
-Rest of the Big Lap,42,Batemans Bay,Lakes Entrance,150.18,-35.71,148.0,-37.88,310,145,46.8
-Rest of the Big Lap,43,Lakes Entrance,Melbourne,148.0,-37.88,144.96,-37.81,267,349,130.7
-Rest of the Big Lap,44,Melbourne,Torquay,144.96,-37.81,144.33,-38.33,80,83,103.9
+Rest of the Big Lap,18,Adelaide,Port Augusta,138.6,-34.93,137.77,-32.49,282,145,51.4
+Rest of the Big Lap,19,Norseman,Kalgoorlie,121.77,-32.2,121.47,-30.75,164,11,6.7
+Rest of the Big Lap,20,Kalgoorlie,Perth,121.47,-30.75,115.86,-31.95,549,104,18.9
+Rest of the Big Lap,21,Perth,Geraldton,115.86,-31.95,114.61,-28.78,372,68,18.3
+Rest of the Big Lap,22,Geraldton,Carnarvon,114.61,-28.78,113.66,-24.88,444,58,13.1
+Rest of the Big Lap,23,Carnarvon,Port Hedland,113.66,-24.88,118.6,-20.31,718,23,3.2
+Rest of the Big Lap,24,Port Hedland,Broome,118.6,-20.31,122.24,-17.96,463,19,4.1
+Rest of the Big Lap,25,Broome,Halls Creek,122.24,-17.96,127.67,-18.23,575,20,3.5
+Rest of the Big Lap,26,Halls Creek,Kununurra,127.67,-18.23,128.74,-15.77,296,37,12.5
+Rest of the Big Lap,27,Kununurra,Katherine,128.74,-15.77,132.26,-14.47,405,16,4.0
+Rest of the Big Lap,28,Tennant Creek,Camooweal,134.19,-19.65,138.12,-19.92,412,11,2.7
+Rest of the Big Lap,29,Camooweal,Mount Isa,138.12,-19.92,139.49,-20.73,169,5,3.0
+Rest of the Big Lap,30,Mount Isa,Hughenden,139.49,-20.73,144.2,-20.84,490,28,5.7
+Rest of the Big Lap,31,Hughenden,Townsville,144.2,-20.84,146.82,-19.26,325,51,15.7
+Rest of the Big Lap,32,Townsville,Mackay,146.82,-19.26,149.18,-21.14,323,98,30.3
+Rest of the Big Lap,33,Mackay,Rockhampton,149.18,-21.14,150.51,-23.38,284,47,16.5
+Rest of the Big Lap,34,Rockhampton,Bundaberg,150.51,-23.38,152.35,-24.87,250,78,31.2
+Rest of the Big Lap,35,Bundaberg,Brisbane,152.35,-24.87,153.03,-27.47,297,367,123.6
+Rest of the Big Lap,36,Brisbane,Coffs Harbour,153.03,-27.47,153.11,-30.3,315,314,99.7
+Rest of the Big Lap,37,Coffs Harbour,Newcastle,153.11,-30.3,151.78,-32.93,318,255,80.2
+Rest of the Big Lap,38,Newcastle,Sydney,151.78,-32.93,151.21,-33.87,117,130,111.1
+Rest of the Big Lap,39,Sydney,Batemans Bay,151.21,-33.87,150.18,-35.71,225,239,106.2
+Rest of the Big Lap,40,Batemans Bay,Lakes Entrance,150.18,-35.71,148.0,-37.88,310,145,46.8
+Rest of the Big Lap,41,Lakes Entrance,Melbourne,148.0,-37.88,144.96,-37.81,267,347,130.0
+Rest of the Big Lap,42,Melbourne,Torquay,144.96,-37.81,144.33,-38.33,80,82,102.5
