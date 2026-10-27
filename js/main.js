@@ -1,8 +1,6 @@
 // Draws every chart on the page.
-// Each Vega-Lite spec is a hand-readable JSON file in /specs. It is rendered into the empty
-// <div id="cNN"> in index.html with the matching number.
-// Fonts, colours and axis styling shared by all charts live in specs/theme.json and are added
-// to each spec here, so the chart files only contain what is specific to that chart.
+// Each Vega-Lite spec is a hand-readable JSON file in /specs. 
+// Fonts, colours and axis styling shared by all charts live in specs/theme.json
 
 const charts = [
   "01_choropleth_trips_per_1000",
@@ -31,13 +29,14 @@ async function drawCharts() {
     return {};
   });
   charts.forEach(async (id) => {
-    const target = "#c" + id.slice(0, 2); // "01_choropleth..." -> "#c01"
+    const target = "#c" + id.slice(0, 2); 
     try {
       const spec = await getJSON("specs/" + id + ".json");
       spec.config = Object.assign({}, theme, spec.config);
       await vegaEmbed(target, spec, {
         actions: false, // hide the export menu
-        // Chart 08 draws ~9,800 dots, so it uses canvas (faster); the rest use SVG (sharper).
+        // Chart 08 draws approx. 9,800 dots, so it uses canvas cause its faster
+        // The rest use SVG since its sharper.
         renderer: id.startsWith("08") ? "canvas" : "svg",
       });
     } catch (err) {
@@ -47,7 +46,7 @@ async function drawCharts() {
   });
 }
 
-// Vega measures text as it draws, so wait for the web fonts first (but never for more than 2.5 s).
+// Vega measures text as it draws, so wait for the web fonts first (but limit to 2.5 s).
 const fontsReady = document.fonts
   ? Promise.all([
       document.fonts.load('400 12px "Public Sans"'),
