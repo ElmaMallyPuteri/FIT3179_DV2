@@ -36,7 +36,7 @@
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
@@ -248,7 +248,7 @@
       ],
       "mark": {
         "type": "text",
-        "fontSize": 10,
+        "fontSize": 11,
         "dy": 8,
         "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
       },

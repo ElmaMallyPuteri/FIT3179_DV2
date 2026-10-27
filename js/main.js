@@ -35,6 +35,7 @@ const fontsReady = document.fonts
   ? Promise.all([
       document.fonts.load('400 12px "Public Sans"'),
       document.fonts.load('700 12px "Public Sans"'),
+      document.fonts.load('700 17px "Fraunces"'),
     ])
   : Promise.resolve();
 Promise.race([fontsReady, new Promise((resolve) => setTimeout(resolve, 2500))])

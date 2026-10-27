@@ -3,7 +3,7 @@
    Palette (shared with every chart in /specs):
    Space Cadet #25344F, Slate Gray #617891, Tan #D5B893,
    Coffee #6F4D38, Caput Mortuum #632024
-   Type: headings in Times New Roman (serif),
+   Type: headings in Fraunces (serif),
    body text in Public Sans (sans serif, loaded from Google Fonts, with Arial as fallback).
    ===================================================================== */
 :root {
@@ -16,7 +16,7 @@
   --page-alt: #f0e8d9; /* slightly deeper tint, for alternating sections */
   --card: #fffdf8;
   --card-edge: #e4dac8;
-  --serif: "Times New Roman", Times, serif;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --sans: "Public Sans", Arial, Helvetica, sans-serif;
 }
 
@@ -207,7 +207,7 @@ section > .wrap > h2 {
 .small {
   font-size: 0.88rem;
   line-height: 1.5;
-  color: var(--slate);
+  color: #4b6079;
 }
 
 /* ---- Footer ---- */
@@ -282,3 +282,5 @@ footer code {
     scroll-behavior: auto;
   }
 }
+
+.stat .ico{display:block;font-size:1.6rem;margin-bottom:.3rem}

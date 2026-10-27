@@ -35,7 +35,7 @@
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Times New Roman, Times, serif",
+      "font": "Fraunces, Georgia, serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
@@ -137,7 +137,7 @@
         "fontSize": 54,
         "fontWeight": "bold",
         "color": "#25344F",
-        "font": "Times New Roman, Times, serif"
+        "font": "Fraunces, Georgia, serif"
       },
       "encoding": {
         "x": {
