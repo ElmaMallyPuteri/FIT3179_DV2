@@ -1,35 +1,239 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Caravan and Road Trip: why Australians keep hitting the road</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script><script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script><script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-<link rel="stylesheet" href="css/style.css"></head><body>
-<header class="hero"><div class="wrap"><h1>Caravan and Road Trip</h1>
-<p>Australia is big, and most of it is reached by road. In 2025 Australians took 17.3 million overnight caravan and camping trips, the biggest year on record. This page follows those trips: where they go, when, how long, and why the open road still wins.</p></div></header>
-<section><div class="wrap"><h2>Where do the caravans go?</h2>
-<div class="full"><div class="fig"><div id="c01"></div></div><div class="txt"><h3>Overnight trips by state</h3>
-<p>Each state is shaded by how many overnight trips Australians took there in the year to June 2026. Caravan and camping trips are part of these totals, but the official figures do not split them out by state. A darker shade means more trips. Hover over a state for trips, nights and spending.</p>
-<p class="obs">New South Wales received 39.2 million overnight trips, ahead of Victoria (31.0 million) and Queensland (26.0 million). The Northern Territory had under 1 million. A trip that visits two states counts in both.</p></div></div>
-<div class="row"><div class="txt"><h3>When trips happen</h3><p>Each square is one state in one three-month period, from September 2025 to June 2026. Darker squares mean more trips.</p><p class="obs">Victoria peaks in the March quarter (8.5 million trips), the end of summer, while Queensland is busiest in spring and early summer. The Northern Territory has the opposite pattern: its quietest quarter is the humid summer, with 168,000 trips.</p></div><div class="fig"><div id="c02"></div></div></div>
-<div class="row"><div class="fig"><div id="c03"></div></div><div class="txt"><h3>Trips are growing</h3><p>Trips rose 14% in 2025 and kept edging up to 17.7 million in the year to March 2026. Take care comparing years: the survey method changed in 2025.</p></div></div>
-<div class="full"><div class="fig"><div id="c04"></div></div><div class="txt"><h3>Nights away</h3><p>Bigger circles mean more nights spent away in the year to June 2026. Trips and nights tell different stories because some states see longer stays.</p><p class="obs">Victoria had more trips than Queensland, but Queensland had more nights (92.0 million against 86.5 million). Queensland visitors stay longer.</p></div></div>
-</div></section>
-<section><div class="wrap"><h2>Who goes, and why?</h2>
-<div class="row"><div class="fig"><div id="c05"></div></div><div class="txt"><h3>A holiday on wheels</h3><p>Of every 100 caravan and camping trips in the year to March 2026, 80 were holidays and 12 were visits to friends and relatives.</p><p class="obs">The average trip is now 3.4 nights: shorter and closer to home.</p></div></div>
-<div class="row"><div class="txt"><h3>Where the money goes</h3><p>Commercial caravan parks host 67% of trips, 70% of nights and 75% of spending. Longer stays and paid sites mean more dollars per trip.</p></div><div class="fig"><div id="c06"></div></div></div>
-</div></section>
-<section><div class="wrap"><h2>Big states, small states</h2>
-<div class="full"><div class="fig"><div id="c07"></div></div><div class="txt"><h3>Every state, same size</h3><p>On a normal map, huge Western Australia swamps the tiny ACT. Here each state gets one equal tile, placed roughly where it sits on the map, with the average length of a trip printed on it.</p><p class="obs">The Northern Territory has the longest trips at 4.3 nights. Victoria and the ACT have the shortest at 2.8 nights, which suits quick getaways.</p></div></div>
-</div></section>
-<section><div class="wrap"><h2>Where to park and which way to drive</h2>
-<div class="row"><div class="fig"><div id="c08"></div></div><div class="txt"><h3>Caravan parks and campsites</h3><p>Each dot is a caravan park (teal) or campsite (orange) from OpenStreetMap: 9,782 sites in total, of which 7,767 are campsites. Sites bunch along the east coast and southern coast and thin out across the outback, where the next stop can be hundreds of kilometres away.</p><p class="obs">OpenStreetMap is mapped by volunteers, so it will miss some sites and include some free bush camps.</p></div></div>
-<div class="row"><div class="txt"><h3>Classic routes</h3><p>From the Great Ocean Road to the Nullarbor and the Stuart Highway, these are the drives that define Australian road trips. Click a route in the legend to highlight it. The Big Lap circles the whole country.</p></div><div class="fig"><div id="c09"></div></div></div>
-</div></section>
-<section><div class="wrap"><h2>Putting it together</h2>
-<div class="row"><div class="fig"><div id="c10"></div></div><div class="txt"><h3>Who leads on spending</h3><p>Each line follows one state. Lines rise or fall as the state gains or loses rank for visitor spending. Crossing lines mean two states swapped places.</p><p class="obs">Queensland led in the September quarter, then New South Wales took over from December. Victoria climbed to second in the March quarter, its summer peak.</p></div></div>
-<div class="row"><div class="txt"><h3>States compared</h3><p>Each line is a state. Follow it across four measures. Every measure is scaled so the highest state scores 100, which lets different units sit on one axis.</p><p class="obs">New South Wales leads on trips, nights and spending. The Northern Territory is small on all three but tops the list for nights per trip.</p></div><div class="fig"><div id="c11"></div></div></div>
-</div></section>
-<footer><div class="wrap"><h2>Sources and credits</h2>
-<p><b>Data:</b> Tourism Research Australia, Domestic Tourism Statistics: quarterly tables to June 2026 and the 2019-2024 backcast (<a href="https://www.tra.gov.au/en/domestic/domestic-tourism-trends.html">tra.gov.au</a>); Caravan Industry Association of Australia, <a href="https://www.caravanindustry.com.au/insights-campaigns/industry-statistics/">industry statistics</a>; ABS Australian Statistical Geography Standard 2021 state boundaries (CC BY 4.0), simplified TopoJSON via <a href="https://github.com/sherwinzxw/australian-spatial-data">sherwinzxw/australian-spatial-data</a>; caravan sites &copy; OpenStreetMap contributors (ODbL). Route lines hand-traced from town locations and simplified.</p>
-<p><b>Author:</b> [Your name], Monash University FIT3179 Data Visualisation 2, [date]. <b>AI assistance:</b> Claude (Anthropic) helped generate the code and text; all data sources are cited above.</p></div></footer>
-<script src="js/main.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Caravan and Road Trip: why Australians keep hitting the road</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&family=Source+Serif+4:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== HERO / INTRO ===== -->
+    <header class="hero">
+      <div class="wrap">
+        <h1>Caravan and Road Trip</h1>
+        <p>
+          Australia is big, and most of it is reached by road. In 2025 Australians took 17.3 million
+          overnight caravan and camping trips, the biggest year on record. This page follows those
+          trips: where they go, when, how long, and why the open road still wins.
+        </p>
+      </div>
+    </header>
+    <!-- ===== SECTION 1: Where do the caravans go? (charts c01 choropleth, c02 heatmap, c03 line, c04 symbol map) ===== -->
+    <section>
+      <div class="wrap">
+        <h2>Where do the caravans go?</h2>
+        <div class="full">
+          <div class="fig"><div id="c01"></div></div>
+          <div class="txt">
+            <h3>Overnight trips by state</h3>
+            <p>
+              Each state is shaded by how many overnight trips Australians took there in the year to
+              June 2026. Caravan and camping trips are part of these totals, but the official
+              figures do not split them out by state. A darker shade means more trips. Hover over a
+              state for trips, nights and spending.
+            </p>
+            <p class="obs">
+              New South Wales received 39.2 million overnight trips, ahead of Victoria (31.0
+              million) and Queensland (26.0 million). The Northern Territory had under 1 million. A
+              trip that visits two states counts in both.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="txt">
+            <h3>When trips happen</h3>
+            <p>
+              Each square is one state in one three-month period, from September 2025 to June 2026.
+              Darker squares mean more trips.
+            </p>
+            <p class="obs">
+              Victoria peaks in the March quarter (8.5 million trips), the end of summer, while
+              Queensland is busiest in spring and early summer. The Northern Territory has the
+              opposite pattern: its quietest quarter is the humid summer, with 168,000 trips.
+            </p>
+          </div>
+          <div class="fig"><div id="c02"></div></div>
+        </div>
+        <div class="row">
+          <div class="fig"><div id="c03"></div></div>
+          <div class="txt">
+            <h3>Trips are growing</h3>
+            <p>
+              Trips rose 14% in 2025 and kept edging up to 17.7 million in the year to March 2026.
+              Take care comparing years: the survey method changed in 2025.
+            </p>
+          </div>
+        </div>
+        <div class="full">
+          <div class="fig"><div id="c04"></div></div>
+          <div class="txt">
+            <h3>Nights away</h3>
+            <p>
+              Bigger circles mean more nights spent away in the year to June 2026. Trips and nights
+              tell different stories because some states see longer stays.
+            </p>
+            <p class="obs">
+              Victoria had more trips than Queensland, but Queensland had more nights (92.0 million
+              against 86.5 million). Queensland visitors stay longer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SECTION 2: Who goes, and why? (c05 waffle, c06 line/slope) ===== -->
+    <section>
+      <div class="wrap">
+        <h2>Who goes, and why?</h2>
+        <div class="row">
+          <div class="fig"><div id="c05"></div></div>
+          <div class="txt">
+            <h3>A holiday on wheels</h3>
+            <p>
+              Of every 100 caravan and camping trips in the year to March 2026, 80 were holidays and
+              12 were visits to friends and relatives.
+            </p>
+            <p class="obs">The average trip is now 3.4 nights: shorter and closer to home.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="txt">
+            <h3>Where the money goes</h3>
+            <p>
+              Commercial caravan parks host 67% of trips, 70% of nights and 75% of spending. Longer
+              stays and paid sites mean more dollars per trip.
+            </p>
+          </div>
+          <div class="fig"><div id="c06"></div></div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SECTION 3: Big states, small states (c07 tile grid map) ===== -->
+    <section>
+      <div class="wrap">
+        <h2>Big states, small states</h2>
+        <div class="full">
+          <div class="fig"><div id="c07"></div></div>
+          <div class="txt">
+            <h3>Every state, same size</h3>
+            <p>
+              On a normal map, huge Western Australia swamps the tiny ACT. Here each state gets one
+              equal tile, placed roughly where it sits on the map, with the average length of a trip
+              printed on it.
+            </p>
+            <p class="obs">
+              The Northern Territory has the longest trips at 4.3 nights. Victoria and the ACT have
+              the shortest at 2.8 nights, which suits quick getaways.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SECTION 4: Where to park and which way to drive (c08 dot map, c09 route map) ===== -->
+    <section>
+      <div class="wrap">
+        <h2>Where to park and which way to drive</h2>
+        <div class="row">
+          <div class="fig"><div id="c08"></div></div>
+          <div class="txt">
+            <h3>Caravan parks and campsites</h3>
+            <p>
+              Each dot is a caravan park (teal) or campsite (orange) from OpenStreetMap: 9,782 sites
+              in total, of which 7,767 are campsites. Sites bunch along the east coast and southern
+              coast and thin out across the outback, where the next stop can be hundreds of
+              kilometres away.
+            </p>
+            <p class="obs">
+              OpenStreetMap is mapped by volunteers, so it will miss some sites and include some
+              free bush camps.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="txt">
+            <h3>Classic routes</h3>
+            <p>
+              From the Great Ocean Road to the Nullarbor and the Stuart Highway, these are the
+              drives that define Australian road trips. Click a route in the legend to highlight it.
+              The Big Lap circles the whole country.
+            </p>
+          </div>
+          <div class="fig"><div id="c09"></div></div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== SECTION 5: Putting it together (c10 bump chart, c11 parallel coordinates) ===== -->
+    <section>
+      <div class="wrap">
+        <h2>Putting it together</h2>
+        <div class="row">
+          <div class="fig"><div id="c10"></div></div>
+          <div class="txt">
+            <h3>Who leads on spending</h3>
+            <p>
+              Each line follows one state. Lines rise or fall as the state gains or loses rank for
+              visitor spending. Crossing lines mean two states swapped places.
+            </p>
+            <p class="obs">
+              Queensland led in the September quarter, then New South Wales took over from December.
+              Victoria climbed to second in the March quarter, its summer peak.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="txt">
+            <h3>States compared</h3>
+            <p>
+              Each line is a state. Follow it across four measures. Every measure is scaled so the
+              highest state scores 100, which lets different units sit on one axis.
+            </p>
+            <p class="obs">
+              New South Wales leads on trips, nights and spending. The Northern Territory is small
+              on all three but tops the list for nights per trip.
+            </p>
+          </div>
+          <div class="fig"><div id="c11"></div></div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FOOTER: sources, author, AI acknowledgement ===== -->
+    <footer>
+      <div class="wrap">
+        <h2>Sources and credits</h2>
+        <p>
+          <b>Data:</b>
+          Tourism Research Australia, Domestic Tourism Statistics: quarterly tables to June 2026 and
+          the 2019-2024 backcast (
+          <a href="https://www.tra.gov.au/en/domestic/domestic-tourism-trends.html">tra.gov.au</a>
+          ); Caravan Industry Association of Australia,
+          <a href="https://www.caravanindustry.com.au/insights-campaigns/industry-statistics/">
+            industry statistics
+          </a>
+          ; ABS Australian Statistical Geography Standard 2021 state boundaries (CC BY 4.0),
+          simplified TopoJSON via
+          <a href="https://github.com/sherwinzxw/australian-spatial-data">
+            sherwinzxw/australian-spatial-data
+          </a>
+          ; caravan sites &copy; OpenStreetMap contributors (ODbL). Route lines hand-traced from
+          town locations and simplified.
+        </p>
+        <p>
+          <b>Author:</b>
+          [Your name], Monash University FIT3179 Data Visualisation 2, [date].
+          <b>AI assistance:</b>
+          Claude (Anthropic) helped generate the code and text; all data sources are cited above.
+        </p>
+      </div>
+    </footer>
+    <!-- main.js finds each <div id="cNN"> above and draws the chart into it -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

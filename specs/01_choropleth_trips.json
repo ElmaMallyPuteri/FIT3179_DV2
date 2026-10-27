@@ -91,6 +91,7 @@
         "titleLimit": 300
       }
     },
+    
     "tooltip": [
       {
         "field": "properties.STE_NAME21",
