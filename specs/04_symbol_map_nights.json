@@ -1,36 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Where the nights are spent: nights away by state, year ending June 2026",
+  "title": {
+    "text": "Nights spent away, by state",
+    "subtitle": "All overnight trips, year to June 2026"
+  },
   "width": "container",
-  "height": 460,
+  "height": 440,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "projection": {
@@ -60,36 +75,43 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#e3e8e6",
-        "stroke": "#ffffff",
-        "strokeWidth": 0.8
+        "fill": "#EDE4D3",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
       }
     },
     {
       "data": {
-        "url": "data/states.csv"
+        "url": "data/state_metrics.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "tile_x": "number",
+            "tile_y": "number",
+            "trips_k": "number",
+            "nights_k": "number",
+            "spend_m": "number",
+            "avg_nights": "number",
+            "pop_k": "number",
+            "trips_per_1000": "number",
+            "spend_per_trip": "number",
+            "spend_per_night": "number"
+          }
+        }
       },
       "transform": [
         {
-          "lookup": "state",
-          "from": {
-            "data": {
-              "url": "data/state_totals.csv"
-            },
-            "key": "state",
-            "fields": [
-              "nights_k",
-              "avg_nights"
-            ]
-          }
+          "calculate": "datum.nights_k / 1000",
+          "as": "nights_m"
         }
       ],
       "mark": {
         "type": "circle",
-        "color": "#f2b705",
-        "stroke": "#1c262b",
-        "strokeWidth": 1,
-        "opacity": 0.85
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.5,
+        "opacity": 0.9
       },
       "encoding": {
         "longitude": {
@@ -101,30 +123,262 @@
           "type": "quantitative"
         },
         "size": {
-          "field": "nights_k",
+          "field": "nights_m",
           "type": "quantitative",
           "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              120
+            ],
             "range": [
-              80,
-              5000
+              0,
+              5200
             ]
           },
-          "title": "Nights (thousands)"
+          "title": "Nights away (millions)",
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              10,
+              50,
+              100
+            ],
+            "symbolFillColor": "#617891",
+            "titleLimit": 300
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.abbr == 'QLD'",
+            "value": "#632024"
+          },
+          "value": "#617891"
         },
         "tooltip": [
           {
-            "field": "state"
+            "field": "state",
+            "title": "State"
           },
           {
-            "field": "nights_k",
-            "title": "Nights (000s)",
+            "field": "nights_m",
+            "title": "Nights (millions)",
+            "format": ".1f"
+          },
+          {
+            "field": "trips_k",
+            "title": "Trips (000s)",
             "format": ","
           },
           {
             "field": "avg_nights",
-            "title": "Average nights per trip"
+            "title": "Nights per trip"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_metrics.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "tile_x": "number",
+            "tile_y": "number",
+            "trips_k": "number",
+            "nights_k": "number",
+            "spend_m": "number",
+            "avg_nights": "number",
+            "pop_k": "number",
+            "trips_per_1000": "number",
+            "spend_per_trip": "number",
+            "spend_per_night": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['NSW','VIC','QLD','WA','SA'], datum.abbr) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#FFFFFF",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "abbr",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_metrics.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "tile_x": "number",
+            "tile_y": "number",
+            "trips_k": "number",
+            "nights_k": "number",
+            "spend_m": "number",
+            "avg_nights": "number",
+            "pop_k": "number",
+            "trips_per_1000": "number",
+            "spend_per_trip": "number",
+            "spend_per_night": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "!(indexof(['NSW','VIC','QLD','WA','SA'], datum.abbr) >= 0)"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "align": "left",
+        "dx": 13,
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "abbr",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.4,
+            "lat": -11.0,
+            "t": "Queensland: most nights"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.4,
+            "lat": -12.9,
+            "t": "(92.0m), though Victoria"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.4,
+            "lat": -14.8,
+            "t": "has more trips (31.0m)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
       }
     }
   ]

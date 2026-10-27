@@ -1,36 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "State ranking by visitor spending",
+  "title": {
+    "text": "Ranking of states by visitor spending",
+    "subtitle": "All overnight trips, July 2025 to June 2026"
+  },
   "width": "container",
-  "height": 320,
+  "height": 340,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "data": {
@@ -65,12 +80,306 @@
   ],
   "layer": [
     {
+      "transform": [
+        {
+          "filter": "!(indexof(['NSW','VIC','QLD'], datum.abbr) >= 0)"
+        }
+      ],
       "mark": {
         "type": "line",
-        "strokeWidth": 3,
+        "strokeWidth": 2,
+        "opacity": 0.9,
         "point": {
           "filled": true,
-          "size": 70
+          "size": 40
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": [
+            "Sep 2025",
+            "Dec 2025",
+            "Mar 2026",
+            "Jun 2026"
+          ],
+          "title": null,
+          "scale": {
+            "padding": 0.5
+          },
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "{'Sep 2025':'Jul–Sep','Dec 2025':'Oct–Dec','Mar 2026':'Jan–Mar','Jun 2026':'Apr–Jun'}[datum.value]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              8.5,
+              -0.4
+            ]
+          },
+          "title": "Rank (1 = most spending)",
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "grid": false,
+            "format": "d"
+          }
+        },
+        "color": {
+          "field": "abbr",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "SA",
+              "WA",
+              "TAS",
+              "NT",
+              "ACT"
+            ],
+            "range": [
+              "#25344F",
+              "#6F4D38",
+              "#632024",
+              "#D5B893",
+              "#D5B893",
+              "#D5B893",
+              "#D5B893",
+              "#D5B893"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "quarter",
+            "title": "Quarter (ending)"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          },
+          {
+            "field": "spend_m",
+            "title": "Spending ($m)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "indexof(['NSW','VIC','QLD'], datum.abbr) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 4.5,
+        "point": {
+          "filled": true,
+          "size": 110
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": [
+            "Sep 2025",
+            "Dec 2025",
+            "Mar 2026",
+            "Jun 2026"
+          ],
+          "title": null,
+          "scale": {
+            "padding": 0.5
+          },
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "{'Sep 2025':'Jul–Sep','Dec 2025':'Oct–Dec','Mar 2026':'Jan–Mar','Jun 2026':'Apr–Jun'}[datum.value]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              8.5,
+              -0.4
+            ]
+          },
+          "title": "Rank (1 = most spending)",
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "grid": false,
+            "format": "d"
+          }
+        },
+        "color": {
+          "field": "abbr",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "SA",
+              "WA",
+              "TAS",
+              "NT",
+              "ACT"
+            ],
+            "range": [
+              "#25344F",
+              "#6F4D38",
+              "#632024",
+              "#D5B893",
+              "#D5B893",
+              "#D5B893",
+              "#D5B893",
+              "#D5B893"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "quarter",
+            "title": "Quarter (ending)"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          },
+          {
+            "field": "spend_m",
+            "title": "Spending ($m)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.quarter == 'Sep 2025'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": [
+            "Sep 2025",
+            "Dec 2025",
+            "Mar 2026",
+            "Jun 2026"
+          ],
+          "title": null,
+          "scale": {
+            "padding": 0.5
+          },
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "{'Sep 2025':'Jul–Sep','Dec 2025':'Oct–Dec','Mar 2026':'Jan–Mar','Jun 2026':'Apr–Jun'}[datum.value]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              8.5,
+              -0.4
+            ]
+          },
+          "title": "Rank (1 = most spending)",
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "grid": false,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "abbr",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "abbr",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "SA",
+              "WA",
+              "TAS",
+              "NT",
+              "ACT"
+            ],
+            "range": [
+              "#25344F",
+              "#6F4D38",
+              "#632024",
+              "#617891",
+              "#617891",
+              "#617891",
+              "#617891",
+              "#617891"
+            ]
+          }
         }
       }
     },
@@ -83,63 +392,223 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 10,
-        "fontSize": 12
+        "dx": 12,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "font": "Arial, Helvetica, sans-serif"
       },
       "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": [
+            "Sep 2025",
+            "Dec 2025",
+            "Mar 2026",
+            "Jun 2026"
+          ],
+          "title": null,
+          "scale": {
+            "padding": 0.5
+          },
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "{'Sep 2025':'Jul–Sep','Dec 2025':'Oct–Dec','Mar 2026':'Jan–Mar','Jun 2026':'Apr–Jun'}[datum.value]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              8.5,
+              -0.4
+            ]
+          },
+          "title": "Rank (1 = most spending)",
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "grid": false,
+            "format": "d"
+          }
+        },
         "text": {
-          "field": "abbr"
+          "field": "abbr",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "abbr",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "SA",
+              "WA",
+              "TAS",
+              "NT",
+              "ACT"
+            ],
+            "range": [
+              "#25344F",
+              "#6F4D38",
+              "#632024",
+              "#617891",
+              "#617891",
+              "#617891",
+              "#617891",
+              "#617891"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "quarter": "Dec 2025",
+            "rank": 1,
+            "t": "NSW overtakes QLD"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -20,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": [
+            "Sep 2025",
+            "Dec 2025",
+            "Mar 2026",
+            "Jun 2026"
+          ],
+          "title": null,
+          "scale": {
+            "padding": 0.5
+          },
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "{'Sep 2025':'Jul–Sep','Dec 2025':'Oct–Dec','Mar 2026':'Jan–Mar','Jun 2026':'Apr–Jun'}[datum.value]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              8.5,
+              -0.4
+            ]
+          },
+          "title": "Rank (1 = most spending)",
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "grid": false,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "quarter": "Mar 2026",
+            "rank": 2,
+            "t": "VIC hits 2nd in summer"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -18,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#6F4D38",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": [
+            "Sep 2025",
+            "Dec 2025",
+            "Mar 2026",
+            "Jun 2026"
+          ],
+          "title": null,
+          "scale": {
+            "padding": 0.5
+          },
+          "axis": {
+            "labelAngle": 0,
+            "labelExpr": "{'Sep 2025':'Jul–Sep','Dec 2025':'Oct–Dec','Mar 2026':'Jan–Mar','Jun 2026':'Apr–Jun'}[datum.value]"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              8.5,
+              -0.4
+            ]
+          },
+          "title": "Rank (1 = most spending)",
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "grid": false,
+            "format": "d"
+          }
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
         }
       }
     }
-  ],
-  "encoding": {
-    "x": {
-      "field": "quarter",
-      "type": "ordinal",
-      "sort": [
-        "Sep 2025",
-        "Dec 2025",
-        "Mar 2026",
-        "Jun 2026"
-      ],
-      "title": "Quarter",
-      "scale": {
-        "padding": 0.4
-      },
-      "axis": {
-        "labelAngle": 0
-      }
-    },
-    "y": {
-      "field": "rank",
-      "type": "ordinal",
-      "title": "Rank (1 = most spending)"
-    },
-    "color": {
-      "field": "abbr",
-      "type": "nominal",
-      "legend": null,
-      "scale": {
-        "scheme": "tableau10"
-      }
-    },
-    "tooltip": [
-      {
-        "field": "state"
-      },
-      {
-        "field": "quarter"
-      },
-      {
-        "field": "rank",
-        "title": "Rank"
-      },
-      {
-        "field": "spend_m",
-        "title": "Spend ($m)",
-        "format": ","
-      }
-    ]
-  }
+  ]
 }

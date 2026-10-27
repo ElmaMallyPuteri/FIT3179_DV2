@@ -1,81 +1,187 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Average nights per trip: a tile map where every state is the same size",
-  "width": 520,
-  "height": 320,
+  "title": {
+    "text": "Average nights per trip",
+    "subtitle": "All overnight trips, year to June 2026"
+  },
+  "width": 360,
+  "height": 360,
   "autosize": {
-    "type": "none"
+    "type": "pad"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "data": {
-    "url": "data/states.csv",
+    "url": "data/state_metrics.csv",
     "format": {
       "type": "csv",
       "parse": {
+        "lon": "number",
+        "lat": "number",
         "tile_x": "number",
-        "tile_y": "number"
+        "tile_y": "number",
+        "trips_k": "number",
+        "nights_k": "number",
+        "spend_m": "number",
+        "avg_nights": "number",
+        "pop_k": "number",
+        "trips_per_1000": "number",
+        "spend_per_trip": "number",
+        "spend_per_night": "number"
       }
     }
   },
-  "transform": [
-    {
-      "lookup": "state",
-      "from": {
-        "data": {
-          "url": "data/state_totals.csv"
-        },
-        "key": "state",
-        "fields": [
-          "avg_nights"
-        ]
-      }
-    }
-  ],
   "layer": [
     {
       "mark": {
         "type": "square",
-        "size": 4800
+        "size": 6400
       },
       "encoding": {
+        "x": {
+          "field": "tile_x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.5,
+              3.5
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "tile_y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.5,
+              3.5
+            ],
+            "reverse": true
+          },
+          "axis": null
+        },
         "color": {
           "field": "avg_nights",
           "type": "quantitative",
           "scale": {
-            "scheme": "teals"
+            "domain": [
+              2.7,
+              3.267,
+              3.833,
+              4.4
+            ],
+            "range": [
+              "#F3EBDD",
+              "#D5B893",
+              "#617891",
+              "#25344F"
+            ]
           },
           "title": "Nights per trip",
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
             "gradientLength": 220,
-            "titleLimit": 300
+            "titleLimit": 300,
+            "values": [
+              3,
+              3.5,
+              4
+            ],
+            "format": ".1f"
           }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "avg_nights",
+            "title": "Nights per trip"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "dy": -10,
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "field": "tile_x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.5,
+              3.5
+            ]
+          },
+          "axis": null
+        },
+        "y": {
+          "field": "tile_y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.5,
+              3.5
+            ],
+            "reverse": true
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "abbr",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.avg_nights > 3.9",
+            "value": "#FFFFFF"
+          },
+          "value": "#25344F"
         }
       }
     },
@@ -83,29 +189,33 @@
       "mark": {
         "type": "text",
         "fontSize": 15,
-        "fontWeight": "bold",
-        "dy": -9
+        "dy": 11,
+        "font": "Arial, Helvetica, sans-serif"
       },
       "encoding": {
-        "text": {
-          "field": "abbr"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.avg_nights > 3.4",
-            "value": "#ffffff"
+        "x": {
+          "field": "tile_x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.5,
+              3.5
+            ]
           },
-          "value": "#1c262b"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 13,
-        "dy": 10
-      },
-      "encoding": {
+          "axis": null
+        },
+        "y": {
+          "field": "tile_y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -0.5,
+              3.5
+            ],
+            "reverse": true
+          },
+          "axis": null
+        },
         "text": {
           "field": "avg_nights",
           "type": "quantitative",
@@ -113,33 +223,162 @@
         },
         "color": {
           "condition": {
-            "test": "datum.avg_nights > 3.4",
-            "value": "#ffffff"
+            "test": "datum.avg_nights > 3.9",
+            "value": "#FFFFFF"
           },
-          "value": "#1c262b"
+          "value": "#25344F"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "Longest trips:"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 4
+        },
+        "y": {
+          "value": 36
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "NT, 4.3 nights"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 4
+        },
+        "y": {
+          "value": 52
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "Shortest trips:"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 4
+        },
+        "y": {
+          "value": 232
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "VIC and ACT,"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 4
+        },
+        "y": {
+          "value": 248
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "2.8 nights"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 4
+        },
+        "y": {
+          "value": 264
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
         }
       }
     }
-  ],
-  "encoding": {
-    "x": {
-      "field": "tile_x",
-      "type": "ordinal",
-      "axis": null
-    },
-    "y": {
-      "field": "tile_y",
-      "type": "ordinal",
-      "axis": null
-    },
-    "tooltip": [
-      {
-        "field": "state"
-      },
-      {
-        "field": "avg_nights",
-        "title": "Average nights per trip"
-      }
-    ]
-  }
+  ]
 }

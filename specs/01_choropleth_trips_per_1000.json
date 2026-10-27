@@ -1,0 +1,415 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Overnight trips per 1,000 residents",
+    "subtitle": "All overnight trips, year to June 2026"
+  },
+  "width": "container",
+  "height": 440,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
+    },
+    "legend": {
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
+    },
+    "title": {
+      "font": "Times New Roman, Times, serif",
+      "fontSize": 17,
+      "fontWeight": "bold",
+      "anchor": "start",
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
+    }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -134,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA94"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+        },
+        {
+          "lookup": "properties.STE_NAME21",
+          "from": {
+            "data": {
+              "url": "data/state_metrics.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "lon": "number",
+                  "lat": "number",
+                  "tile_x": "number",
+                  "tile_y": "number",
+                  "trips_k": "number",
+                  "nights_k": "number",
+                  "spend_m": "number",
+                  "avg_nights": "number",
+                  "pop_k": "number",
+                  "trips_per_1000": "number",
+                  "spend_per_trip": "number",
+                  "spend_per_night": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "trips_k",
+              "nights_k",
+              "pop_k",
+              "trips_per_1000"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "color": {
+          "field": "trips_per_1000",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              3000.0,
+              3733.333,
+              4466.667,
+              5200.0
+            ],
+            "range": [
+              "#F3EBDD",
+              "#D5B893",
+              "#617891",
+              "#25344F"
+            ]
+          },
+          "title": "Trips per 1,000 residents",
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 240,
+            "titleLimit": 300,
+            "format": ",",
+            "values": [
+              3000,
+              3500,
+              4000,
+              4500,
+              5000
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.STE_NAME21",
+            "title": "State"
+          },
+          {
+            "field": "trips_per_1000",
+            "title": "Trips per 1,000 residents",
+            "format": ","
+          },
+          {
+            "field": "trips_k",
+            "title": "Total trips (000s)",
+            "format": ","
+          },
+          {
+            "field": "pop_k",
+            "title": "Population (000s)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_metrics.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "tile_x": "number",
+            "tile_y": "number",
+            "trips_k": "number",
+            "nights_k": "number",
+            "spend_m": "number",
+            "avg_nights": "number",
+            "pop_k": "number",
+            "trips_per_1000": "number",
+            "spend_per_trip": "number",
+            "spend_per_night": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['TAS','ACT'], datum.abbr) < 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "dy": -7,
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.trips_per_1000 > 4200",
+            "value": "#FFFFFF"
+          },
+          "value": "#25344F"
+        },
+        "text": {
+          "field": "abbr",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_metrics.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "tile_x": "number",
+            "tile_y": "number",
+            "trips_k": "number",
+            "nights_k": "number",
+            "spend_m": "number",
+            "avg_nights": "number",
+            "pop_k": "number",
+            "trips_per_1000": "number",
+            "spend_per_trip": "number",
+            "spend_per_night": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['TAS','ACT'], datum.abbr) < 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "normal",
+        "dy": 8,
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.trips_per_1000 > 4200",
+            "value": "#FFFFFF"
+          },
+          "value": "#25344F"
+        },
+        "text": {
+          "field": "trips_per_1000",
+          "type": "quantitative",
+          "format": ","
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 149.1,
+            "lat": -35.3
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "size": 50,
+        "color": "#25344F",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 150.0,
+            "lat": -34.0,
+            "t": "ACT 4,535"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 11,
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.6,
+            "lat": -43.2,
+            "t": "Tasmania: 5,068, the highest"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.8,
+            "lat": -38.6,
+            "t": "Western Australia: 3,208, the lowest"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

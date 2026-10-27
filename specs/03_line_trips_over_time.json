@@ -1,36 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Caravan and camping trips, millions (CIAA / TRA)",
+  "title": {
+    "text": "Caravan and camping trips, millions",
+    "subtitle": "Caravan and camping trips only"
+  },
   "width": "container",
-  "height": 300,
+  "height": 320,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "data": {
@@ -52,24 +67,133 @@
   "layer": [
     {
       "mark": {
+        "type": "area",
+        "color": "#D5B893",
+        "opacity": 0.45,
+        "line": false
+      },
+      "encoding": {
+        "x": {
+          "field": "p",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              22
+            ]
+          },
+          "title": "Trips (millions)",
+          "axis": {
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
         "type": "line",
+        "color": "#25344F",
+        "strokeWidth": 3,
         "point": {
           "filled": true,
-          "size": 90,
-          "color": "#1f6f6a"
+          "size": 110,
+          "color": "#25344F"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "p",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
         },
-        "color": "#1f6f6a",
-        "strokeWidth": 3
+        "y": {
+          "field": "m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              22
+            ]
+          },
+          "title": "Trips (millions)",
+          "axis": {
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "p",
+            "title": "Period"
+          },
+          {
+            "field": "m",
+            "title": "Trips (millions)",
+            "format": ".1f"
+          }
+        ]
       }
     },
     {
       "mark": {
         "type": "text",
-        "dy": -14,
-        "fontSize": 13,
-        "color": "#1c262b"
+        "dy": -16,
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
       },
       "encoding": {
+        "x": {
+          "field": "p",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              22
+            ]
+          },
+          "title": "Trips (millions)",
+          "axis": {
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ]
+          }
+        },
         "text": {
           "field": "m",
           "type": "quantitative",
@@ -82,47 +206,110 @@
         "values": [
           {
             "p": "2025",
-            "m": 13.2,
-            "t": "TRA changed its survey method in 2025,"
+            "m": 17.3,
+            "t": "+14% on 2024"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -36,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "field": "p",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              22
+            ]
+          },
+          "title": "Trips (millions)",
+          "axis": {
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ]
+          }
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "p": "2025",
+            "m": 6.5,
+            "t": "The survey method changed in 2025,"
           },
           {
             "p": "2025",
-            "m": 12.4,
-            "t": "so older years are adjusted estimates."
+            "m": 4.5,
+            "t": "so 2024 is an adjusted estimate."
           }
         ]
       },
       "mark": {
         "type": "text",
         "fontSize": 12,
-        "color": "#5b6a70"
+        "color": "#6F4D38",
+        "fontStyle": "italic",
+        "font": "Arial, Helvetica, sans-serif"
       },
       "encoding": {
+        "x": {
+          "field": "p",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              22
+            ]
+          },
+          "title": "Trips (millions)",
+          "axis": {
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ]
+          }
+        },
         "text": {
-          "field": "t"
+          "field": "t",
+          "type": "nominal"
         }
       }
     }
-  ],
-  "encoding": {
-    "x": {
-      "field": "p",
-      "type": "ordinal",
-      "title": null,
-      "axis": {
-        "labelAngle": 0
-      }
-    },
-    "y": {
-      "field": "m",
-      "type": "quantitative",
-      "scale": {
-        "domain": [
-          10,
-          20
-        ]
-      },
-      "title": "Trips (millions)"
-    }
-  }
+  ]
 }

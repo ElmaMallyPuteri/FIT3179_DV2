@@ -1,36 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Every caravan park and campsite mapped in OpenStreetMap",
+  "title": {
+    "text": "Caravan parks and campsites",
+    "subtitle": "9,782 sites mapped in OpenStreetMap"
+  },
   "width": "container",
-  "height": 460,
+  "height": 440,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "projection": {
@@ -60,20 +75,25 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#e3e8e6",
-        "stroke": "#ffffff",
-        "strokeWidth": 0.8
+        "fill": "#EDE4D3",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
       }
     },
     {
       "data": {
         "url": "data/caravan_sites.csv"
       },
+      "transform": [
+        {
+          "calculate": "datum.name == '' || datum.name == null ? 'Unnamed site' : datum.name",
+          "as": "label"
+        }
+      ],
       "mark": {
         "type": "circle",
-        "size": 10,
-        "opacity": 0.55,
-        "stroke": "#ffffff",
+        "size": 11,
+        "opacity": 0.6,
         "strokeWidth": 0
       },
       "encoding": {
@@ -85,47 +105,179 @@
           "field": "lat",
           "type": "quantitative"
         },
+        "order": {
+          "field": "type",
+          "type": "nominal",
+          "sort": "ascending"
+        },
         "color": {
           "field": "type",
           "type": "nominal",
+          "title": null,
           "scale": {
             "domain": [
               "caravan_site",
               "camp_site"
             ],
             "range": [
-              "#1f6f6a",
-              "#d1601f"
+              "#632024",
+              "#617891"
             ]
           },
-          "title": "Site type",
           "legend": {
-            "labelExpr": "datum.value == 'caravan_site' ? 'Caravan park' : 'Campsite'",
-            "symbolOpacity": 1
+            "orient": "bottom",
+            "symbolOpacity": 1,
+            "symbolSize": 90,
+            "labelExpr": "datum.value == 'caravan_site' ? 'Caravan park (2,015)' : 'Campsite (7,767)'"
           }
         },
         "tooltip": [
           {
             "field": "label",
             "title": "Name"
-          },
-          {
-            "field": "type",
-            "title": "Type"
           }
-        ],
-        "order": {
-          "field": "type",
-          "type": "nominal",
-          "sort": "descending"
-        }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 125.0,
+            "lat": -25.0,
+            "t": "Outback: sites are"
+          }
+        ]
       },
-      "transform": [
-        {
-          "calculate": "datum.name == '' || datum.name == null ? 'Unnamed site' : datum.name",
-          "as": "label"
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
         }
-      ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 125.0,
+            "lat": -26.9,
+            "t": "hundreds of km apart"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.6,
+            "lat": -39.2,
+            "t": "Most sites hug the east and"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.6,
+            "lat": -41.1,
+            "t": "south-east coasts  →"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
     }
   ]
 }

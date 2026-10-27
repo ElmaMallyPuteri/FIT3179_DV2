@@ -1,153 +1,737 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "States compared on four measures",
+  "title": {
+    "text": "How states compare, measure by measure",
+    "subtitle": [
+      "All overnight trips, year to June 2026",
+      "Each axis runs from the lowest to the highest state"
+    ]
+  },
   "width": "container",
-  "height": 340,
+  "height": 360,
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "data": {
-    "url": "data/state_totals.csv",
-    "format": {
-      "type": "csv",
-      "parse": {
-        "trips_k": "number",
-        "nights_k": "number",
-        "spend_m": "number",
-        "avg_nights": "number"
+    "values": [
+      {
+        "abbr": "NSW",
+        "state": "New South Wales",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 13.3,
+        "real": "3.0 nights",
+        "hl": 0
+      },
+      {
+        "abbr": "VIC",
+        "state": "Victoria",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 0.0,
+        "real": "2.8 nights",
+        "hl": 1
+      },
+      {
+        "abbr": "QLD",
+        "state": "Queensland",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 46.7,
+        "real": "3.5 nights",
+        "hl": 0
+      },
+      {
+        "abbr": "SA",
+        "state": "South Australia",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 33.3,
+        "real": "3.3 nights",
+        "hl": 0
+      },
+      {
+        "abbr": "WA",
+        "state": "Western Australia",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 53.3,
+        "real": "3.6 nights",
+        "hl": 0
+      },
+      {
+        "abbr": "TAS",
+        "state": "Tasmania",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 53.3,
+        "real": "3.6 nights",
+        "hl": 1
+      },
+      {
+        "abbr": "NT",
+        "state": "Northern Territory",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 100.0,
+        "real": "4.3 nights",
+        "hl": 1
+      },
+      {
+        "abbr": "ACT",
+        "state": "Australian Capital Territory",
+        "label": "Nights|per trip",
+        "measure": "Nights per trip",
+        "scaled": 0.0,
+        "real": "2.8 nights",
+        "hl": 0
+      },
+      {
+        "abbr": "NSW",
+        "state": "New South Wales",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 4.7,
+        "real": "$808",
+        "hl": 0
+      },
+      {
+        "abbr": "VIC",
+        "state": "Victoria",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 0.0,
+        "real": "$758",
+        "hl": 1
+      },
+      {
+        "abbr": "QLD",
+        "state": "Queensland",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 27.3,
+        "real": "$1,045",
+        "hl": 0
+      },
+      {
+        "abbr": "SA",
+        "state": "South Australia",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 14.0,
+        "real": "$905",
+        "hl": 0
+      },
+      {
+        "abbr": "WA",
+        "state": "Western Australia",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 37.6,
+        "real": "$1,154",
+        "hl": 0
+      },
+      {
+        "abbr": "TAS",
+        "state": "Tasmania",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 34.8,
+        "real": "$1,124",
+        "hl": 1
+      },
+      {
+        "abbr": "NT",
+        "state": "Northern Territory",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 100.0,
+        "real": "$1,811",
+        "hl": 1
+      },
+      {
+        "abbr": "ACT",
+        "state": "Australian Capital Territory",
+        "label": "Spend|per trip",
+        "measure": "Spend per trip",
+        "scaled": 19.9,
+        "real": "$968",
+        "hl": 0
+      },
+      {
+        "abbr": "NSW",
+        "state": "New South Wales",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 0.0,
+        "real": "$266",
+        "hl": 0
+      },
+      {
+        "abbr": "VIC",
+        "state": "Victoria",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 3.8,
+        "real": "$272",
+        "hl": 1
+      },
+      {
+        "abbr": "QLD",
+        "state": "Queensland",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 18.6,
+        "real": "$295",
+        "hl": 0
+      },
+      {
+        "abbr": "SA",
+        "state": "South Australia",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 7.1,
+        "real": "$277",
+        "hl": 0
+      },
+      {
+        "abbr": "WA",
+        "state": "Western Australia",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 35.9,
+        "real": "$322",
+        "hl": 0
+      },
+      {
+        "abbr": "TAS",
+        "state": "Tasmania",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 28.2,
+        "real": "$310",
+        "hl": 1
+      },
+      {
+        "abbr": "NT",
+        "state": "Northern Territory",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 100.0,
+        "real": "$422",
+        "hl": 1
+      },
+      {
+        "abbr": "ACT",
+        "state": "Australian Capital Territory",
+        "label": "Spend|per night",
+        "measure": "Spend per night",
+        "scaled": 50.6,
+        "real": "$345",
+        "hl": 0
+      },
+      {
+        "abbr": "NSW",
+        "state": "New South Wales",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 70.6,
+        "real": "4,521",
+        "hl": 0
+      },
+      {
+        "abbr": "VIC",
+        "state": "Victoria",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 60.4,
+        "real": "4,332",
+        "hl": 1
+      },
+      {
+        "abbr": "QLD",
+        "state": "Queensland",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 71.2,
+        "real": "4,532",
+        "hl": 0
+      },
+      {
+        "abbr": "SA",
+        "state": "South Australia",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 43.7,
+        "real": "4,021",
+        "hl": 0
+      },
+      {
+        "abbr": "WA",
+        "state": "Western Australia",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 0.0,
+        "real": "3,208",
+        "hl": 0
+      },
+      {
+        "abbr": "TAS",
+        "state": "Tasmania",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 100.0,
+        "real": "5,068",
+        "hl": 1
+      },
+      {
+        "abbr": "NT",
+        "state": "Northern Territory",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 24.7,
+        "real": "3,667",
+        "hl": 1
+      },
+      {
+        "abbr": "ACT",
+        "state": "Australian Capital Territory",
+        "label": "Trips per 1,000|residents",
+        "measure": "Trips per 1,000 residents",
+        "scaled": 71.3,
+        "real": "4,535",
+        "hl": 0
       }
-    }
+    ]
   },
-  "transform": [
-    {
-      "calculate": "{'New South Wales':'NSW','Victoria':'VIC','Queensland':'QLD','South Australia':'SA','Western Australia':'WA','Tasmania':'TAS','Northern Territory':'NT','Australian Capital Territory':'ACT'}[datum.state]",
-      "as": "abbr_"
-    },
-    {
-      "fold": [
-        "trips_k",
-        "nights_k",
-        "spend_m",
-        "avg_nights"
-      ],
-      "as": [
-        "measure",
-        "value"
-      ]
-    },
-    {
-      "joinaggregate": [
-        {
-          "op": "max",
-          "field": "value",
-          "as": "mx"
-        }
-      ],
-      "groupby": [
-        "measure"
-      ]
-    },
-    {
-      "calculate": "datum.value / datum.mx * 100",
-      "as": "scaled"
-    },
-    {
-      "calculate": "{'trips_k':'Trips','nights_k':'Nights','spend_m':'Spending','avg_nights':'Nights per trip'}[datum.measure]",
-      "as": "label"
-    }
-  ],
-  "layer": [
-    {
-      "mark": {
-        "type": "line",
-        "strokeWidth": 2.5,
-        "opacity": 0.8
-      }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 50
-      }
-    }
-  ],
   "encoding": {
     "x": {
       "field": "label",
       "type": "ordinal",
       "sort": [
-        "Trips",
-        "Nights",
-        "Spending",
-        "Nights per trip"
+        "Nights|per trip",
+        "Spend|per trip",
+        "Spend|per night",
+        "Trips per 1,000|residents"
       ],
       "title": null,
-      "axis": {
-        "labelAngle": 0
-      }
-    },
-    "y": {
-      "field": "scaled",
-      "type": "quantitative",
-      "title": "Scaled value (biggest state = 100)"
-    },
-    "detail": {
-      "field": "state",
-      "type": "nominal"
-    },
-    "color": {
-      "field": "abbr_",
-      "type": "nominal",
       "scale": {
-        "scheme": "tableau10"
+        "padding": 0.6
       },
-      "title": null,
-      "legend": {
+      "axis": {
         "orient": "bottom",
-        "columns": 8,
-        "symbolType": "stroke"
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelExpr": "split(datum.value, '|')",
+        "labelPadding": 8,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold"
+      }
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Nights|per trip",
+            "lo": 0,
+            "hi": 100
+          },
+          {
+            "label": "Spend|per trip",
+            "lo": 0,
+            "hi": 100
+          },
+          {
+            "label": "Spend|per night",
+            "lo": 0,
+            "hi": 100
+          },
+          {
+            "label": "Trips per 1,000|residents",
+            "lo": 0,
+            "hi": 100
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#617891",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "lo"
+        },
+        "y2": {
+          "field": "hi"
+        }
       }
     },
-    "tooltip": [
-      {
-        "field": "state"
+    {
+      "transform": [
+        {
+          "filter": "datum.hl == 0"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "color": "#D5B893",
+        "strokeWidth": 2.5
       },
-      {
-        "field": "label",
-        "title": "Measure"
-      },
-      {
-        "field": "value",
-        "format": ","
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "scaled"
+        },
+        "detail": {
+          "field": "abbr",
+          "type": "nominal"
+        }
       }
-    ]
-  }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.hl == 0"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "color": "#D5B893",
+        "filled": true,
+        "size": 40
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "scaled"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "measure",
+            "title": "Measure"
+          },
+          {
+            "field": "real",
+            "title": "Value"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.hl == 1"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 4.5,
+        "point": {
+          "filled": true,
+          "size": 100
+        }
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "scaled"
+        },
+        "color": {
+          "field": "abbr",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "NT",
+              "TAS",
+              "VIC"
+            ],
+            "range": [
+              "#632024",
+              "#25344F",
+              "#6F4D38"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "measure",
+            "title": "Measure"
+          },
+          {
+            "field": "real",
+            "title": "Value"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.hl == 1 && datum.label == 'Trips per 1,000|residents'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "scaled"
+        },
+        "color": {
+          "field": "abbr",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "NT",
+              "TAS",
+              "VIC"
+            ],
+            "range": [
+              "#632024",
+              "#25344F",
+              "#6F4D38"
+            ]
+          }
+        },
+        "text": {
+          "field": "abbr",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Nights|per trip",
+            "y": 100,
+            "t": "4.3 nights (NT)"
+          },
+          {
+            "label": "Spend|per trip",
+            "y": 100,
+            "t": "$1,811 (NT)"
+          },
+          {
+            "label": "Spend|per night",
+            "y": 100,
+            "t": "$422 (NT)"
+          },
+          {
+            "label": "Trips per 1,000|residents",
+            "y": 100,
+            "t": "5,068 (TAS)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -8,
+        "fontSize": 11,
+        "color": "#6F4D38",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "y"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Nights|per trip",
+            "y": 0,
+            "t": "2.8 nights (VIC & ACT)"
+          },
+          {
+            "label": "Spend|per trip",
+            "y": 0,
+            "t": "$758 (VIC)"
+          },
+          {
+            "label": "Spend|per night",
+            "y": 0,
+            "t": "$266 (NSW)"
+          },
+          {
+            "label": "Trips per 1,000|residents",
+            "y": 0,
+            "t": "3,208 (WA)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "baseline": "top",
+        "dy": 8,
+        "fontSize": 11,
+        "color": "#6F4D38",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "y"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Nights|per trip",
+            "y": 128,
+            "t": "Northern Territory tops 3 of 4 measures"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -34,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -16,
+              134
+            ]
+          },
+          "axis": null,
+          "field": "y"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
 }

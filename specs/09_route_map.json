@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Four classic road trips (simplified routes)",
+  "title": {
+    "text": "Four classic caravan routes",
+    "subtitle": "Simplified routes drawn from town locations"
+  },
   "width": "container",
   "height": 460,
   "autosize": {
@@ -8,29 +11,41 @@
     "contains": "padding"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "projection": {
@@ -60,9 +75,9 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#e3e8e6",
-        "stroke": "#ffffff",
-        "strokeWidth": 0.8
+        "fill": "#EDE4D3",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
       }
     },
     {
@@ -112,12 +127,6 @@
           "field": "route",
           "type": "nominal",
           "title": "Click a route to highlight it",
-          "legend": {
-            "orient": "bottom",
-            "columns": 2,
-            "labelLimit": 300,
-            "titleLimit": 400
-          },
           "scale": {
             "domain": [
               "Great Ocean Road",
@@ -126,11 +135,19 @@
               "The Big Lap (simplified)"
             ],
             "range": [
-              "#d1601f",
-              "#1f6f6a",
-              "#6b4fa3",
-              "#222b30"
+              "#632024",
+              "#6F4D38",
+              "#25344F",
+              "#617891"
             ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "columns": 2,
+            "labelLimit": 300,
+            "titleLimit": 400,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 4
           }
         },
         "strokeDash": {
@@ -158,7 +175,7 @@
                 0
               ],
               [
-                9,
+                8,
                 6
               ]
             ]
@@ -169,13 +186,224 @@
             "param": "pick",
             "value": 1
           },
-          "value": 0.18
+          "value": 0.2
         },
         "tooltip": [
           {
-            "field": "route"
+            "field": "route",
+            "title": "Route"
           }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 143.2,
+            "lat": -40.0,
+            "t": "Great Ocean Road"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 127.0,
+            "lat": -34.4,
+            "t": "Nullarbor (Eyre Highway)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#6F4D38",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 135.6,
+            "lat": -22.0,
+            "t": "Stuart Highway:"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 135.6,
+            "lat": -23.9,
+            "t": "Port Augusta to Darwin"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "color": "#25344F",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 119.0,
+            "lat": -23.0,
+            "t": "The Big Lap"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fontStyle": "normal",
+        "color": "#617891",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 119.0,
+            "lat": -24.9,
+            "t": "circles the country"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "color": "#617891",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
       }
     }
   ]

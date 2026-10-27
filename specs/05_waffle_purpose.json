@@ -1,36 +1,50 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Why Australians go: purpose of caravan and camping trips (100 squares = all trips)",
-  "width": "container",
-  "height": 300,
+  "title": {
+    "text": "Purpose of caravan and camping trips",
+    "subtitle": "Each square is 1 in every 100 trips, year to March 2026"
+  },
+  "width": 260,
+  "height": 260,
   "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
+    "type": "pad"
   },
   "config": {
-    "font": "Barlow",
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "domainColor": "#9aa5a8",
-      "tickColor": "#9aa5a8",
-      "gridColor": "#e3e8e6"
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
     },
     "legend": {
-      "labelFont": "Barlow",
-      "titleFont": "Barlow",
-      "labelFontSize": 12
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
     },
     "title": {
-      "font": "Barlow Condensed",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
+      "fontWeight": "bold",
       "anchor": "start",
-      "color": "#1c262b"
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
     }
   },
   "data": {
@@ -50,45 +64,117 @@
       "as": "row"
     },
     {
-      "calculate": "datum.i < 80 ? 'Holiday (80%)' : datum.i < 92 ? 'Visiting friends and relatives (12%)' : 'Other reasons (8%)'",
+      "calculate": "datum.i < 80 ? 'Holiday (80)' : datum.i < 92 ? 'Visiting friends and relatives (12)' : 'Other reasons (8)'",
       "as": "purpose"
     }
   ],
-  "mark": {
-    "type": "square",
-    "size": 420
-  },
-  "encoding": {
-    "x": {
-      "field": "col",
-      "type": "ordinal",
-      "axis": null
+  "layer": [
+    {
+      "mark": {
+        "type": "square",
+        "size": 520
+      },
+      "encoding": {
+        "x": {
+          "field": "col",
+          "type": "ordinal",
+          "axis": null
+        },
+        "y": {
+          "field": "row",
+          "type": "ordinal",
+          "axis": null
+        },
+        "color": {
+          "field": "purpose",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Holiday (80)",
+              "Visiting friends and relatives (12)",
+              "Other reasons (8)"
+            ],
+            "range": [
+              "#25344F",
+              "#6F4D38",
+              "#D5B893"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "columns": 1,
+            "symbolType": "square",
+            "labelLimit": 300
+          }
+        },
+        "tooltip": [
+          {
+            "field": "purpose",
+            "title": "Purpose (out of 100 trips)"
+          }
+        ]
+      }
     },
-    "y": {
-      "field": "row",
-      "type": "ordinal",
-      "axis": null
-    },
-    "color": {
-      "field": "purpose",
-      "type": "nominal",
-      "title": null,
-      "scale": {
-        "range": [
-          "#1f6f6a",
-          "#f2b705",
-          "#b9c4c2"
+    {
+      "data": {
+        "values": [
+          {
+            "t": "80 of every 100"
+          }
         ]
       },
-      "legend": {
-        "orient": "bottom",
-        "columns": 1
+      "mark": {
+        "type": "text",
+        "color": "#FFFFFF",
+        "fontWeight": "bold",
+        "fontSize": 15,
+        "align": "center",
+        "baseline": "middle",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 130
+        },
+        "y": {
+          "value": 96
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
       }
     },
-    "tooltip": [
-      {
-        "field": "purpose"
+    {
+      "data": {
+        "values": [
+          {
+            "t": "trips are holidays"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#FFFFFF",
+        "fontWeight": "bold",
+        "fontSize": 15,
+        "align": "center",
+        "baseline": "middle",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "x": {
+          "value": 130
+        },
+        "y": {
+          "value": 118
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
       }
-    ]
-  }
+    }
+  ]
 }

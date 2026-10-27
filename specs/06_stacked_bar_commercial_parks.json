@@ -1,0 +1,326 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Who gets the trips, nights and dollars?",
+    "subtitle": "Caravan and camping trips only"
+  },
+  "width": "container",
+  "height": 250,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "config": {
+    "font": "Arial, Helvetica, sans-serif",
+    "background": "#FFFDF8",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F",
+      "domainColor": "#617891",
+      "tickColor": "#617891",
+      "gridColor": "#E6DCCB"
+    },
+    "legend": {
+      "labelFont": "Arial, Helvetica, sans-serif",
+      "titleFont": "Arial, Helvetica, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#25344F",
+      "titleColor": "#25344F"
+    },
+    "title": {
+      "font": "Times New Roman, Times, serif",
+      "fontSize": 17,
+      "fontWeight": "bold",
+      "anchor": "start",
+      "color": "#25344F",
+      "subtitleFont": "Arial, Helvetica, sans-serif",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#617891",
+      "subtitlePadding": 4,
+      "offset": 10
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "measure": "Trips",
+        "segment": "Commercial caravan parks",
+        "pct": 67,
+        "ord": 0
+      },
+      {
+        "measure": "Trips",
+        "segment": "All other types of site",
+        "pct": 33,
+        "ord": 1
+      },
+      {
+        "measure": "Nights away",
+        "segment": "Commercial caravan parks",
+        "pct": 70,
+        "ord": 0
+      },
+      {
+        "measure": "Nights away",
+        "segment": "All other types of site",
+        "pct": 30,
+        "ord": 1
+      },
+      {
+        "measure": "Spending",
+        "segment": "Commercial caravan parks",
+        "pct": 75,
+        "ord": 0
+      },
+      {
+        "measure": "Spending",
+        "segment": "All other types of site",
+        "pct": 25,
+        "ord": 1
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "y": {
+          "field": "measure",
+          "type": "ordinal",
+          "sort": [
+            "Trips",
+            "Nights away",
+            "Spending"
+          ],
+          "title": null,
+          "scale": {
+            "paddingInner": 0.5,
+            "paddingOuter": 0.25
+          },
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13
+          }
+        },
+        "x": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "title": null,
+          "axis": {
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+            "labelExpr": "datum.value + '%'",
+            "grid": false
+          },
+          "field": "pct",
+          "stack": "zero"
+        },
+        "order": {
+          "field": "ord",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "segment",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Commercial caravan parks",
+              "All other types of site"
+            ],
+            "range": [
+              "#25344F",
+              "#D5B893"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "labelLimit": 260
+          }
+        },
+        "tooltip": [
+          {
+            "field": "measure",
+            "title": "Measure"
+          },
+          {
+            "field": "segment",
+            "title": "Site type"
+          },
+          {
+            "field": "pct",
+            "title": "Share (%)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "measure": "Trips",
+            "mid": 33.5,
+            "t": "67%",
+            "c": "#FFFFFF"
+          },
+          {
+            "measure": "Trips",
+            "mid": 83.5,
+            "t": "33%",
+            "c": "#25344F"
+          },
+          {
+            "measure": "Nights away",
+            "mid": 35.0,
+            "t": "70%",
+            "c": "#FFFFFF"
+          },
+          {
+            "measure": "Nights away",
+            "mid": 85.0,
+            "t": "30%",
+            "c": "#25344F"
+          },
+          {
+            "measure": "Spending",
+            "mid": 37.5,
+            "t": "75%",
+            "c": "#FFFFFF"
+          },
+          {
+            "measure": "Spending",
+            "mid": 87.5,
+            "t": "25%",
+            "c": "#25344F"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "field": "measure",
+          "type": "ordinal",
+          "sort": [
+            "Trips",
+            "Nights away",
+            "Spending"
+          ],
+          "title": null,
+          "scale": {
+            "paddingInner": 0.5,
+            "paddingOuter": 0.25
+          },
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13
+          }
+        },
+        "x": {
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          },
+          "title": null,
+          "axis": {
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+            "labelExpr": "datum.value + '%'",
+            "grid": false
+          },
+          "field": "mid"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "c",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "measure": "Spending",
+            "t": "75% of spending, 67% of trips"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dy": -29,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "field": "measure",
+          "type": "ordinal",
+          "sort": [
+            "Trips",
+            "Nights away",
+            "Spending"
+          ],
+          "title": null,
+          "scale": {
+            "paddingInner": 0.5,
+            "paddingOuter": 0.25
+          },
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13
+          }
+        },
+        "x": {
+          "value": 0
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}
