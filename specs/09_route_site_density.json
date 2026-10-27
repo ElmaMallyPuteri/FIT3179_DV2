@@ -1,0 +1,750 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mapped sites along four classic routes",
+    "subtitle": [
+      "Each stretch is coloured by the caravan parks and campsites within 50 km of it,",
+      "per 100 km of route. Hover over a route to highlight it."
+    ]
+  },
+  "width": "container",
+  "height": 480,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -134,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA94"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EDE4D3",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_segments.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "seg": "number",
+            "lon0": "number",
+            "lat0": "number",
+            "lon1": "number",
+            "lat1": "number",
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "route"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 5,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon0",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat0",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon1"
+        },
+        "latitude2": {
+          "field": "lat1"
+        },
+        "color": {
+          "field": "sites_per_100km",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              5,
+              15,
+              40,
+              80
+            ],
+            "range": [
+              "#9FB3C8",
+              "#7D96B0",
+              "#5A7391",
+              "#3C5373",
+              "#25344F"
+            ]
+          },
+          "title": "Mapped sites per 100 km of route",
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 5,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 5,
+            "titleLimit": 400
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "value": 1
+          },
+          "value": 0.3
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "title": "Route"
+          },
+          {
+            "field": "from_place",
+            "title": "From"
+          },
+          {
+            "field": "to_place",
+            "title": "To"
+          },
+          {
+            "field": "km",
+            "title": "Length (km)",
+            "format": ",.0f"
+          },
+          {
+            "field": "sites",
+            "title": "Mapped sites within 50 km",
+            "format": ",.0f"
+          },
+          {
+            "field": "sites_per_100km",
+            "title": "Sites per 100 km",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/routes.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "seq": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['Perth','Broome','Darwin','Alice Springs','Brisbane','Sydney','Adelaide','Townsville'], datum.place) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "size": 34,
+        "color": "#FFFFFF",
+        "stroke": "#25344F",
+        "strokeWidth": 1.4,
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/routes.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "seq": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof([\"Perth\", \"Broome\", \"Darwin\", \"Alice Springs\", \"Townsville\"], datum.place) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7,
+        "fontSize": 11,
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "place",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/routes.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "seq": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof([\"Brisbane\", \"Sydney\", \"Adelaide\"], datum.place) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -7,
+        "fontSize": 11,
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "place",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Great Ocean Road'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "datum.short",
+          "as": "t"
+        },
+        {
+          "calculate": "143.4",
+          "as": "lx"
+        },
+        {
+          "calculate": "-40.1",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dy": -7,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Great Ocean Road'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "format(datum.sites_per_100km,'.0f') + ' sites per 100 km'",
+          "as": "t"
+        },
+        {
+          "calculate": "143.4",
+          "as": "lx"
+        },
+        {
+          "calculate": "-40.1",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dy": 8,
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Nullarbor (Eyre Highway)'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "datum.short",
+          "as": "t"
+        },
+        {
+          "calculate": "127.0",
+          "as": "lx"
+        },
+        {
+          "calculate": "-34.7",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -7,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Nullarbor (Eyre Highway)'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "format(datum.sites_per_100km,'.0f') + ' sites per 100 km'",
+          "as": "t"
+        },
+        {
+          "calculate": "127.0",
+          "as": "lx"
+        },
+        {
+          "calculate": "-34.7",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": 8,
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Stuart Highway'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "datum.short",
+          "as": "t"
+        },
+        {
+          "calculate": "134.9",
+          "as": "lx"
+        },
+        {
+          "calculate": "-22.4",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dy": -7,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Stuart Highway'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "format(datum.sites_per_100km,'.0f') + ' sites per 100 km'",
+          "as": "t"
+        },
+        {
+          "calculate": "134.9",
+          "as": "lx"
+        },
+        {
+          "calculate": "-22.4",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dy": 8,
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Rest of the Big Lap'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "datum.short",
+          "as": "t"
+        },
+        {
+          "calculate": "122.0",
+          "as": "lx"
+        },
+        {
+          "calculate": "-26.6",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -7,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_summary.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "km": "number",
+            "sites": "number",
+            "sites_per_100km": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.route == 'Rest of the Big Lap'"
+        },
+        {
+          "calculate": "{'Great Ocean Road':'Great Ocean Road','Nullarbor (Eyre Highway)':'Nullarbor (Eyre Hwy)','Stuart Highway':'Stuart Highway','Rest of the Big Lap':'Rest of the Big Lap'}[datum.route]",
+          "as": "short"
+        },
+        {
+          "calculate": "format(datum.sites_per_100km,'.0f') + ' sites per 100 km'",
+          "as": "t"
+        },
+        {
+          "calculate": "122.0",
+          "as": "lx"
+        },
+        {
+          "calculate": "-26.6",
+          "as": "ly"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": 8,
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "ly",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

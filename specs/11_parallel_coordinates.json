@@ -4,7 +4,8 @@
     "text": "How states compare, measure by measure",
     "subtitle": [
       "All overnight trips, year to June 2026",
-      "Each axis runs from the lowest to the highest state"
+      "Each axis runs from the lowest to the highest state",
+      "Hover over a dot to highlight a state."
     ]
   },
   "width": "container",
@@ -12,44 +13,6 @@
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
-  },
-  "config": {
-    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "background": "#FFFDF8",
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "labelColor": "#25344F",
-      "titleColor": "#25344F",
-      "domainColor": "#617891",
-      "tickColor": "#617891",
-      "gridColor": "#E6DCCB"
-    },
-    "legend": {
-      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "labelColor": "#25344F",
-      "titleColor": "#25344F"
-    },
-    "title": {
-      "font": "Fraunces, Georgia, serif",
-      "fontSize": 17,
-      "fontWeight": "bold",
-      "anchor": "start",
-      "color": "#25344F",
-      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "subtitleFontSize": 12,
-      "subtitleColor": "#617891",
-      "subtitlePadding": 4,
-      "offset": 10
-    }
   },
   "data": {
     "values": [
@@ -443,6 +406,22 @@
         "detail": {
           "field": "abbr",
           "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "param": "hover_state",
+            "empty": false,
+            "value": "#25344F"
+          },
+          "value": "#D5B893"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hover_state",
+            "empty": false,
+            "value": 4.5
+          },
+          "value": 2.5
         }
       }
     },
@@ -483,8 +462,37 @@
             "field": "real",
             "title": "Value"
           }
-        ]
-      }
+        ],
+        "color": {
+          "condition": {
+            "param": "hover_state",
+            "empty": false,
+            "value": "#25344F"
+          },
+          "value": "#D5B893"
+        },
+        "size": {
+          "condition": {
+            "param": "hover_state",
+            "empty": false,
+            "value": 110
+          },
+          "value": 60
+        }
+      },
+      "params": [
+        {
+          "name": "hover_state",
+          "select": {
+            "type": "point",
+            "fields": [
+              "abbr"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ]
     },
     {
       "transform": [

@@ -1,0 +1,229 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How far is the next mapped site?",
+    "subtitle": [
+      "Each square is about 50 km wide. Colour shows the distance from its middle",
+      "to the nearest mapped caravan park or campsite. Land only."
+    ]
+  },
+  "width": "container",
+  "height": 460,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -134,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/site_gaps.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "strokeWidth": 0
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.dist_km",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              25,
+              50,
+              100,
+              150
+            ],
+            "range": [
+              "#EFE6D4",
+              "#D5B893",
+              "#B08A63",
+              "#8A5A3C",
+              "#632024"
+            ]
+          },
+          "title": "Distance to the nearest mapped site (km)",
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 5,
+            "symbolType": "square",
+            "symbolSize": 160,
+            "titleLimit": 400
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.dist_km",
+            "title": "Nearest mapped site (km, about)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA94"
+        }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['Z','9'], datum.properties.STE_CODE21) < 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#25344F",
+        "strokeWidth": 0.7,
+        "opacity": 0.55
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 127.75,
+            "lat": -22.75,
+            "lon2": 119.0,
+            "lat2": -35.4
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#25344F",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 127.75,
+            "lat": -22.75
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "size": 150,
+        "color": "#FFFFFF",
+        "strokeWidth": 2.4
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.4,
+            "lat": -36.0,
+            "t": "Gibson Desert, WA:"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 113.4,
+            "lat": -37.0,
+            "t": "about 250 km to the nearest site"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

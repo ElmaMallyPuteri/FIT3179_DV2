@@ -1,37 +1,50 @@
-route,seq,lon,lat
-Great Ocean Road,0,144.33,-38.33
-Great Ocean Road,1,143.98,-38.54
-Great Ocean Road,2,143.67,-38.76
-Great Ocean Road,3,143.0,-38.62
-Great Ocean Road,4,142.48,-38.38
-Nullarbor (Eyre Hwy),0,121.77,-32.2
-Nullarbor (Eyre Hwy),1,123.5,-32.35
-Nullarbor (Eyre Hwy),2,128.9,-31.68
-Nullarbor (Eyre Hwy),3,130.9,-31.45
-Nullarbor (Eyre Hwy),4,133.67,-32.12
-Nullarbor (Eyre Hwy),5,137.77,-32.49
-Stuart Highway,0,137.77,-32.49
-Stuart Highway,1,134.75,-29.01
-Stuart Highway,2,133.88,-23.7
-Stuart Highway,3,134.19,-19.65
-Stuart Highway,4,132.26,-14.47
-Stuart Highway,5,130.84,-12.46
-The Big Lap (simplified),0,130.84,-12.46
-The Big Lap (simplified),1,132.26,-14.47
-The Big Lap (simplified),2,139.49,-20.73
-The Big Lap (simplified),3,146.82,-19.26
-The Big Lap (simplified),4,150.51,-23.38
-The Big Lap (simplified),5,153.03,-27.47
-The Big Lap (simplified),6,151.21,-33.87
-The Big Lap (simplified),7,144.96,-37.81
-The Big Lap (simplified),8,138.6,-34.93
-The Big Lap (simplified),9,137.77,-32.49
-The Big Lap (simplified),10,133.67,-32.12
-The Big Lap (simplified),11,128.9,-31.68
-The Big Lap (simplified),12,121.77,-32.2
-The Big Lap (simplified),13,115.86,-31.95
-The Big Lap (simplified),14,114.6,-28.78
-The Big Lap (simplified),15,113.66,-24.88
-The Big Lap (simplified),16,122.24,-17.96
-The Big Lap (simplified),17,128.74,-15.77
-The Big Lap (simplified),18,130.84,-12.46
+route,seq,place,lon,lat
+Great Ocean Road,0,Torquay,144.33,-38.33
+Great Ocean Road,1,Lorne,143.97,-38.54
+Great Ocean Road,2,Apollo Bay,143.67,-38.76
+Great Ocean Road,3,Port Campbell,142.99,-38.62
+Great Ocean Road,4,Warrnambool,142.48,-38.38
+Nullarbor (Eyre Highway),0,Norseman,121.77,-32.20
+Nullarbor (Eyre Highway),1,Balladonia,123.50,-32.35
+Nullarbor (Eyre Highway),2,Eucla,128.90,-31.68
+Nullarbor (Eyre Highway),3,Nullarbor Roadhouse,130.90,-31.45
+Nullarbor (Eyre Highway),4,Ceduna,133.67,-32.12
+Nullarbor (Eyre Highway),5,Port Augusta,137.77,-32.49
+Stuart Highway,0,Port Augusta,137.77,-32.49
+Stuart Highway,1,Coober Pedy,134.75,-29.01
+Stuart Highway,2,Alice Springs,133.88,-23.70
+Stuart Highway,3,Tennant Creek,134.19,-19.65
+Stuart Highway,4,Katherine,132.26,-14.47
+Stuart Highway,5,Darwin,130.84,-12.46
+Rest of the Big Lap,0,Warrnambool,142.48,-38.38
+Rest of the Big Lap,1,Portland,141.60,-38.35
+Rest of the Big Lap,2,Mount Gambier,140.78,-37.83
+Rest of the Big Lap,3,Meningie,139.34,-35.69
+Rest of the Big Lap,4,Adelaide,138.60,-34.93
+Rest of the Big Lap,5,Port Augusta,137.77,-32.49
+Rest of the Big Lap,6,Norseman,121.77,-32.20
+Rest of the Big Lap,7,Kalgoorlie,121.47,-30.75
+Rest of the Big Lap,8,Perth,115.86,-31.95
+Rest of the Big Lap,9,Geraldton,114.61,-28.78
+Rest of the Big Lap,10,Carnarvon,113.66,-24.88
+Rest of the Big Lap,11,Port Hedland,118.60,-20.31
+Rest of the Big Lap,12,Broome,122.24,-17.96
+Rest of the Big Lap,13,Halls Creek,127.67,-18.23
+Rest of the Big Lap,14,Kununurra,128.74,-15.77
+Rest of the Big Lap,15,Katherine,132.26,-14.47
+Rest of the Big Lap,16,Tennant Creek,134.19,-19.65
+Rest of the Big Lap,17,Camooweal,138.12,-19.92
+Rest of the Big Lap,18,Mount Isa,139.49,-20.73
+Rest of the Big Lap,19,Hughenden,144.20,-20.84
+Rest of the Big Lap,20,Townsville,146.82,-19.26
+Rest of the Big Lap,21,Mackay,149.18,-21.14
+Rest of the Big Lap,22,Rockhampton,150.51,-23.38
+Rest of the Big Lap,23,Bundaberg,152.35,-24.87
+Rest of the Big Lap,24,Brisbane,153.03,-27.47
+Rest of the Big Lap,25,Coffs Harbour,153.11,-30.30
+Rest of the Big Lap,26,Newcastle,151.78,-32.93
+Rest of the Big Lap,27,Sydney,151.21,-33.87
+Rest of the Big Lap,28,Batemans Bay,150.18,-35.71
+Rest of the Big Lap,29,Lakes Entrance,148.00,-37.88
+Rest of the Big Lap,30,Melbourne,144.96,-37.81
+Rest of the Big Lap,31,Torquay,144.33,-38.33

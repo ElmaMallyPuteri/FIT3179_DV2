@@ -1,0 +1,257 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mapped sites for every million trips",
+    "subtitle": [
+      "OpenStreetMap caravan parks and campsites divided by all overnight trips,",
+      "year to June 2026. Dark bars are above the Australian average."
+    ]
+  },
+  "width": "container",
+  "height": 330,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/state_sites.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "sites": "number",
+        "parks": "number",
+        "campsites": "number",
+        "trips_k": "number",
+        "pop_k": "number",
+        "sites_per_million_trips": "number",
+        "national_avg": "number"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.68
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "abbr",
+          "type": "nominal",
+          "sort": [
+            "NT",
+            "TAS",
+            "SA",
+            "WA",
+            "QLD",
+            "VIC",
+            "NSW",
+            "ACT"
+          ],
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+          }
+        },
+        "x": {
+          "field": "sites_per_million_trips",
+          "type": "quantitative",
+          "title": "Mapped sites per million overnight trips",
+          "scale": {
+            "domain": [
+              0,
+              480
+            ]
+          },
+          "axis": {
+            "values": [
+              0,
+              100,
+              200,
+              300,
+              400
+            ],
+            "grid": true
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.sites_per_million_trips > datum.national_avg",
+            "value": "#25344F"
+          },
+          "value": "#D5B893"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "sites_per_million_trips",
+            "title": "Sites per million trips",
+            "format": ",.0f"
+          },
+          {
+            "field": "sites",
+            "title": "Mapped sites",
+            "format": ",.0f"
+          },
+          {
+            "field": "parks",
+            "title": "Caravan parks",
+            "format": ",.0f"
+          },
+          {
+            "field": "campsites",
+            "title": "Campsites",
+            "format": ",.0f"
+          },
+          {
+            "field": "trips_k",
+            "title": "Overnight trips (000s)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#25344F",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "field": "abbr",
+          "type": "nominal",
+          "sort": [
+            "NT",
+            "TAS",
+            "SA",
+            "WA",
+            "QLD",
+            "VIC",
+            "NSW",
+            "ACT"
+          ],
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+          }
+        },
+        "x": {
+          "field": "sites_per_million_trips",
+          "type": "quantitative",
+          "title": "Mapped sites per million overnight trips",
+          "scale": {
+            "domain": [
+              0,
+              480
+            ]
+          },
+          "axis": {
+            "values": [
+              0,
+              100,
+              200,
+              300,
+              400
+            ],
+            "grid": true
+          }
+        },
+        "text": {
+          "field": "sites_per_million_trips",
+          "type": "quantitative",
+          "format": ",.0f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.abbr == 'NSW'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          5,
+          4
+        ],
+        "strokeWidth": 1.6,
+        "color": "#632024"
+      },
+      "encoding": {
+        "x": {
+          "field": "national_avg",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.abbr == 'ACT'"
+        },
+        {
+          "calculate": "'Australian average: ' + datum.national_avg",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#632024",
+        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
+      },
+      "encoding": {
+        "y": {
+          "field": "abbr",
+          "type": "nominal",
+          "sort": [
+            "NT",
+            "TAS",
+            "SA",
+            "WA",
+            "QLD",
+            "VIC",
+            "NSW",
+            "ACT"
+          ],
+          "title": null,
+          "axis": {
+            "ticks": false,
+            "domain": false,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+          }
+        },
+        "x": {
+          "field": "national_avg",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

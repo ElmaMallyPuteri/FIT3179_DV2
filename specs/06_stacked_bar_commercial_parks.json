@@ -10,44 +10,6 @@
     "type": "fit-x",
     "contains": "padding"
   },
-  "config": {
-    "font": "\"Public Sans\", Arial, Helvetica, sans-serif",
-    "background": "#FFFDF8",
-    "view": {
-      "stroke": null
-    },
-    "axis": {
-      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "labelColor": "#25344F",
-      "titleColor": "#25344F",
-      "domainColor": "#617891",
-      "tickColor": "#617891",
-      "gridColor": "#E6DCCB"
-    },
-    "legend": {
-      "labelFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "titleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "labelColor": "#25344F",
-      "titleColor": "#25344F"
-    },
-    "title": {
-      "font": "Fraunces, Georgia, serif",
-      "fontSize": 17,
-      "fontWeight": "bold",
-      "anchor": "start",
-      "color": "#25344F",
-      "subtitleFont": "\"Public Sans\", Arial, Helvetica, sans-serif",
-      "subtitleFontSize": 12,
-      "subtitleColor": "#617891",
-      "subtitlePadding": 4,
-      "offset": 10
-    }
-  },
   "data": {
     "values": [
       {

@@ -24,6 +24,21 @@
 div.vega-embed {
   width: 100%;
   display: flex;
+  flex-wrap: wrap; /* lets the radio buttons under chart 08 sit below the map */
+}
+/* Radio buttons under chart 08 (show all sites, parks only, campsites only) */
+form.vega-bindings {
+  position: static;
+  flex: 0 0 100%;
+  padding: 0.5rem 0.25rem 0;
+  font: 600 0.9rem var(--sans);
+  color: var(--space);
+}
+.vega-bind label {
+  margin-right: 0.9rem;
+}
+.vega-bind input {
+  accent-color: var(--caput);
 }
 div.vega-embed details,
 div.vega-embed details summary {
@@ -131,7 +146,7 @@ h3 {
 }
 .defs .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 1rem;
 }
@@ -145,6 +160,19 @@ section.alt {
 }
 section > .wrap > h2 {
   margin-bottom: 2rem;
+}
+/* Section heading with a one-line bridge to the story so far */
+.sec-head {
+  margin-bottom: 2rem;
+}
+.sec-head h2 {
+  margin-bottom: 0.5rem;
+}
+.sec-head p {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 1.08rem;
+  color: #3d4f69;
 }
 .row {
   display: grid;
@@ -193,6 +221,9 @@ section > .wrap > h2 {
 }
 .tag-map {
   background: var(--space);
+}
+.tag-two {
+  background: var(--caput);
 }
 .defs .tag {
   margin-bottom: 0.4rem;
@@ -283,4 +314,3 @@ footer code {
   }
 }
 
-.stat .ico{display:block;font-size:1.6rem;margin-bottom:.3rem}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="An interactive data story about caravan and camping trips in Australia: where they go, when, how long and why."
+      content="An interactive data story about caravan and camping trips in Australia: where they go, when, how long and why, and where the caravan parks are."
     />
     <title>Australia on the Move: where overnight trips go, and where to park</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
@@ -27,9 +27,10 @@
         <p class="kicker">Overnight trips, caravans and the open road</p>
         <h1>Australia on the Move</h1>
         <p class="lede">
-          Australia is big, and most of it can be reached by road. In 2025 Australians took 17.3 million
-          overnight caravan and camping trips, up 14% on 2024. This page follows those trips: where
-          they go, when, how long, and what it means for where you park.
+          Australia is big, and most of it can be reached by road. In 2025 Australians took an
+          estimated 17.3 million overnight caravan and camping trips, about 14% more than an adjusted
+          estimate for 2024 (the survey method changed, so treat the rise as approximate). This page
+          follows those trips: where they go, when, how long, and where you can park.
         </p>
         <div class="stats">
           <div class="stat"><b>17.3 million</b><span>caravan and camping trips in 2025</span></div>
@@ -43,10 +44,11 @@
     <div class="intro">
       <div class="wrap">
         <div class="defs">
-          <h2>What counts as a trip?</h2>
+          <h2>How to read this page</h2>
           <p>
-            An overnight trip involves spending at least one night away from home. Two types 
-            of figures are presented below, each marked with a tag for easy identification.
+            It is written for anyone curious about road trips in Australia, with no travel or
+            statistics knowledge needed. An overnight trip involves spending at least one night away
+            from home. Each chart carries a tag that shows what kind of figures it uses.
           </p>
           <div class="grid">
             <div>
@@ -64,15 +66,28 @@
                 counts in both.
               </p>
             </div>
+            <div>
+              <span class="tag tag-map">Sites mapped by volunteers</span>
+              <p>
+                Caravan parks and campsites that volunteers have added to OpenStreetMap. The map is
+                incomplete, so treat counts as a guide, not a census.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ===== SECTION 1: where and when (c01 choropleth, c02 heatmap, c03 line, c04 symbol map) ===== -->
+    <!-- ===== SECTION 1: where and when (c01 choropleth, c02 heatmap, c10 bump chart) ===== -->
     <section>
       <div class="wrap">
-        <h2>Where and when do Australians travel?</h2>
+        <div class="sec-head">
+          <h2>Where and when do Australians travel?</h2>
+          <p>
+            Start with the big picture: which states attract the most trips for their size, and when
+            the travelling happens.
+          </p>
+        </div>
 
         <div class="row">
           <div class="txt">
@@ -113,19 +128,31 @@
 
         <div class="row">
           <div class="txt">
-            <span class="tag tag-van">Caravan and camping trips</span>
-            <h3>Caravan and camping trips jumped 14% in 2025</h3>
+            <span class="tag tag-all">All overnight trips</span>
+            <h3>New South Wales overtook Queensland on spending after September</h3>
             <p>
-              Trips rose from 15.2 million in 2024 to 17.3 million in 2025, then reached 17.7
-              million in the year to March 2026. The chart starts at zero so the size of the rise is
-              not exaggerated.
+              Each line follows one state. A line rises or falls as the state gains or loses rank
+              for visitor spending, and crossing lines mean two states swapped places. Only three
+              states are coloured; the rest stay in the background.
             </p>
-            <p class="small">
-              Take care comparing years: the survey method changed in 2025, so 2024 is an adjusted
-              estimate.
+            <p class="obs">
+              Queensland led in July to September, then New South Wales led in the other three quarters. These are seasonal swings within one year, not a long-term trend. Victoria climbed to second in January to March, its summer peak.
             </p>
           </div>
-          <div class="fig"><div id="c03" role="img" aria-label="Bar chart of caravan and camping trips in millions: 15.2 in 2024, 17.3 in 2025 and 17.7 in the year to March 2026."></div></div>
+          <div class="fig"><div id="c10" role="img" aria-label="Bump chart ranking states by visitor spending in four quarters. Queensland leads in July to September, then New South Wales takes first place."></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: how long and how much (c04 symbol map, c07 tile grid map, c11 parallel coordinates) ===== -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>How long do trips last, and what do they cost?</h2>
+          <p>
+            Trips are not all alike. These charts compare the states side by side on nights away and
+            spending.
+          </p>
         </div>
 
         <div class="row">
@@ -144,13 +171,56 @@
             </p>
           </div>
         </div>
+
+        <div class="row">
+          <div class="txt">
+            <span class="tag tag-all">All overnight trips</span>
+            <h3>Trips are shortest in the south-east and longest in the Territory</h3>
+            <p>
+              On a normal map, huge Western Australia swamps the tiny ACT. Here every state gets one
+              equal tile, placed roughly where it sits on the map, with its average trip length
+              printed on it.
+            </p>
+            <p class="obs">
+              The Northern Territory has the longest trips at 4.3 nights. Victoria and the ACT have
+              the shortest at 2.8 nights.
+            </p>
+          </div>
+          <div class="fig"><div id="c07" role="img" aria-label="Tile map with one equal square per state showing average nights per trip. The Northern Territory is longest at 4.3 and Victoria and the ACT shortest at 2.8."></div></div>
+        </div>
+
+        <div class="row">
+          <div class="fig"><div id="c11" role="img" aria-label="Parallel coordinates chart comparing the eight states on trip length, spending per trip, spending per night and trips per resident. The Northern Territory tops three measures."></div></div>
+          <div class="txt">
+            <span class="tag tag-all">All overnight trips</span>
+            <h3>The Northern Territory is the longest-stay, highest-spending destination</h3>
+            <p>
+              Each line is a state, followed across four measures. Every axis runs from the lowest
+              state at the bottom to the highest at the top, with the real values printed at both
+              ends. All four measures are per trip, per night or per resident, so they describe what
+              a state is like rather than how big it is.
+            </p>
+            <p class="small">How to read it: follow one line from left to right. Near the top of an axis means that state ranks highest on that measure. Nights per trip, spending per trip and spending per night are linked, so one long-stay state can top all three. Hover over a dot to highlight a state.</p>
+            <p class="obs">
+              The Northern Territory tops trip length (4.3 nights), spending per trip ($1,811) and
+              spending per night ($422). Tasmania leads on trips per resident. Victoria has the
+              cheapest trips at $758 each.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== SECTION 2: who and why (c05 waffle, c06 stacked bar) ===== -->
-    <section class="alt">
+    <!-- ===== SECTION 3: who and why (c05 waffle, c06 stacked bar) ===== -->
+    <section>
       <div class="wrap">
-        <h2>Who goes, and why?</h2>
+        <div class="sec-head">
+          <h2>Who goes, and why?</h2>
+          <p>
+            From here the story turns to caravan and camping trips, which the official figures cover
+            for the whole country.
+          </p>
+        </div>
 
         <div class="row">
           <div class="fig"><div id="c05" role="img" aria-label="Waffle chart of 100 squares: 80 holiday trips, 12 visits to friends and relatives and 8 other reasons."></div></div>
@@ -184,33 +254,17 @@
       </div>
     </section>
 
-    <!-- ===== SECTION 3: big states, small states (c07 tile grid map) ===== -->
-    <section>
-      <div class="wrap">
-        <h2>Big states, small states</h2>
-        <div class="row">
-          <div class="fig"><div id="c07" role="img" aria-label="Tile map with one equal square per state showing average nights per trip. The Northern Territory is longest at 4.3 and Victoria and the ACT shortest at 2.8."></div></div>
-          <div class="txt">
-            <span class="tag tag-all">All overnight trips</span>
-            <h3>Trips are shortest in the south-east and longest in the Territory</h3>
-            <p>
-              On a normal map, huge Western Australia swamps the tiny ACT. Here every state gets one
-              equal tile, placed roughly where it sits on the map, with its average trip length
-              printed on it.
-            </p>
-            <p class="obs">
-              The Northern Territory has the longest trips at 4.3 nights. Victoria and the ACT have
-              the shortest at 2.8 nights.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 4: parks and routes (c08 dot map, c09 route map) ===== -->
+    <!-- ===== SECTION 4: where to park (c08 dot map, c12 gap map, c03 bar chart, c09 route map) ===== -->
     <section class="alt">
       <div class="wrap">
-        <h2>Where to park and which way to drive</h2>
+        <div class="sec-head">
+          <h2>Where can you park, and how far is the next site?</h2>
+          <p>
+            Finally, the practical question for anyone towing a caravan: where the parks and
+            campsites are, how far apart they sit, and how many there are for the trips each state
+            receives.
+          </p>
+        </div>
 
         <div class="row">
           <div class="txt">
@@ -221,6 +275,7 @@
               9,782 sites in all, of which 7,767 are campsites. Away from the coast there are far fewer mapped sites, although part of that gap is simply fewer volunteers mapping the outback.
             </p>
             <p class="small">
+              Use the buttons under the map to show only caravan parks or only campsites.
               OpenStreetMap is mapped by volunteers, so it misses some sites and includes some free
               bush camps.
             </p>
@@ -229,57 +284,69 @@
         </div>
 
         <div class="row">
-          <div class="fig"><div id="c09" role="img" aria-label="Map of four classic road trip routes: Great Ocean Road, Nullarbor, Stuart Highway and the Big Lap around the country."></div></div>
+          <div class="fig"><div id="c12" role="img" aria-label="Map of Australia split into 50 kilometre squares, each coloured by the distance to the nearest mapped caravan park or campsite. Coastal squares are close to a site; squares in the Western Australian desert are up to about 250 kilometres away."></div></div>
+          <div class="txt">
+            <span class="tag tag-map">Sites mapped by volunteers</span>
+            <h3>About one square in eight is more than 100 km from the nearest mapped site</h3>
+            <p>
+              Dots pile on top of each other along the coast, so they hide how far apart sites really
+              are. Here the land is split into squares about 50 km wide, and each square is coloured
+              by the distance from its middle to the nearest mapped site. Darker red means a longer
+              drive to the next site.
+            </p>
+            <p class="obs">
+              Roughly six in ten squares are more than 25 km from a mapped site, and about one in
+              eight is more than 100 km. The most remote spot, in the Gibson Desert of Western
+              Australia, is about 250 km from the nearest one.
+            </p>
+            <p class="small">
+              Squares sit on a grid over land only, so the coastline looks slightly ragged. Part of
+              the gap reflects where volunteers have mapped less.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="txt">
+            <span class="tag tag-two">Two sources combined</span>
+            <h3>Per million trips, the Northern Territory has more than six times as many mapped sites as New South Wales</h3>
+            <p>
+              This chart combines two sources: the sites each state has in OpenStreetMap, and the
+              overnight trips it receives, from Tourism Research Australia. Dividing one by the other
+              gives a rough sense of how much camping and caravan accommodation exists for each
+              million trips.
+            </p>
+            <p class="obs">
+              The Northern Territory has 402 mapped sites per million trips, Tasmania 156 and South
+              Australia 153. New South Wales has 62, Victoria 66 and Queensland 77, all below the
+              Australian average of 82.
+            </p>
+            <p class="small">
+              Trips include every type of stay, not only caravan trips, and OpenStreetMap is
+              incomplete, so read the bars as a rough guide. The ACT has only 25 mapped sites.
+            </p>
+          </div>
+          <div class="fig"><div id="c03" role="img" aria-label="Bar chart of mapped caravan parks and campsites per million overnight trips. Northern Territory 402, Tasmania 156, South Australia 153, Western Australia 126, Queensland 77, Victoria 66, New South Wales 62 and the ACT 11. The Australian average is 82."></div></div>
+        </div>
+
+        <div class="row">
+          <div class="fig"><div id="c09" role="img" aria-label="Map of four classic road trip routes with each stretch coloured by mapped sites per 100 kilometres. The Great Ocean Road has 47, the Nullarbor 5, the Stuart Highway 6 and the rest of the Big Lap 27."></div></div>
           <div class="txt">
             <span class="tag tag-map">Simplified routes</span>
-            <h3>Four classic routes link the coast, the desert and the Top End</h3>
+            <h3>On the Great Ocean Road sites are everywhere; across the Nullarbor they are scarce</h3>
             <p>
-              From the Great Ocean Road to the Nullarbor and the Stuart Highway, these are the drives
-              that define Australian road trips. Click a route in the legend to highlight it. The
-              Big Lap circles the whole country. Lines are straight links between towns, so they show the idea of each route, not exact roads or distances.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 5: putting it together (c10 bump chart, c11 parallel coordinates) ===== -->
-    <section>
-      <div class="wrap">
-        <h2>Putting it together</h2>
-
-        <div class="row">
-          <div class="txt">
-            <span class="tag tag-all">All overnight trips</span>
-            <h3>New South Wales overtook Queensland on spending after September</h3>
-            <p>
-              Each line follows one state. A line rises or falls as the state gains or loses rank
-              for visitor spending, and crossing lines mean two states swapped places. Only three
-              states are coloured; the rest stay in the background.
+              The map follows four classic drives and colours every stretch by how many mapped sites
+              lie within 50 km of it, per 100 km of route. Darker blue means more sites. “Rest of the
+              Big Lap” covers the remaining part of the loop around the country.
             </p>
             <p class="obs">
-              Queensland led in July to September, then New South Wales led in the other three quarters. These are seasonal swings within one year, not a long-term trend. Victoria climbed to second in January to March, its summer peak.
+              The Great Ocean Road has 47 mapped sites per 100 km, against 6 on the Stuart Highway and
+              5 on the Nullarbor. The emptiest stretch is Tennant Creek to Katherine, with just 5
+              mapped sites along 611 km.
             </p>
-          </div>
-          <div class="fig"><div id="c10" role="img" aria-label="Bump chart ranking states by visitor spending in four quarters. Queensland leads in July to September, then New South Wales takes first place."></div></div>
-        </div>
-
-        <div class="row">
-          <div class="fig"><div id="c11" role="img" aria-label="Parallel coordinates chart comparing the eight states on trip length, spending per trip, spending per night and trips per resident. The Northern Territory tops three measures."></div></div>
-          <div class="txt">
-            <span class="tag tag-all">All overnight trips</span>
-            <h3>The Northern Territory is the longest-stay, highest-spending destination</h3>
-            <p>
-              Each line is a state, followed across four measures. Every axis runs from the lowest
-              state at the bottom to the highest at the top, with the real values printed at both
-              ends. All four measures are per trip, per night or per resident, so they describe what
-              a state is like rather than how big it is.
-            </p>
-            <p class="small">How to read it: follow one line from left to right. Near the top of an axis means that state ranks highest on that measure. Nights per trip, spending per trip and spending per night are linked, so one long-stay state can top all three.</p>
-            <p class="obs">
-              The Northern Territory tops trip length (4.3 nights), spending per trip ($1,811) and
-              spending per night ($422). Tasmania leads on trips per resident. Victoria has the
-              cheapest trips at $758 each.
+            <p class="small">
+              Routes are straight lines between towns, not exact roads, and OpenStreetMap misses some
+              roadhouse campgrounds, so real gaps are probably shorter than shown.
             </p>
           </div>
         </div>
@@ -287,7 +354,7 @@
     </section>
 
     <!-- ===== CLOSING: three takeaways ===== -->
-    <section class="alt">
+    <section>
       <div class="wrap">
         <h2>What the road tells us</h2>
         <div class="takeaways">
@@ -306,10 +373,11 @@
             </p>
           </div>
           <div>
-            <b>Why</b>
+            <b>Why and where to park</b>
             <p>
-              Four in five caravan and camping trips are holidays, and commercial parks take 75% of
-              the spending from 67% of the trips.
+              Four in five caravan and camping trips are holidays. Sites are plentiful on the
+              coast, with 47 per 100 km on the Great Ocean Road, but scarce inland, with 5 on the
+              Nullarbor.
             </p>
           </div>
         </div>
@@ -328,7 +396,8 @@
           Australia,
           <a href="https://www.caravanindustry.com.au/insights-campaigns/industry-statistics/"
             >industry statistics</a
-          >.
+          >
+          (copied into <code>data/caravan_national.csv</code>).
         </p>
         <p>
           <b>Population data:</b> Australian Bureau of Statistics (ABS),
@@ -343,27 +412,54 @@
         <p>
           <b>Maps:</b> ABS Australian Statistical Geography Standard 2021 state boundaries (CC BY
           4.0), simplified TopoJSON via
-          <a href="https://github.com/sherwinzxw/australian-spatial-data"
-            >sherwinzxw/australian-spatial-data</a
-          >. Caravan parks and campsites &copy; OpenStreetMap contributors (ODbL). Route lines are
+          <a href="https://github.com/sherwinzxw/australian-spatial-data">sherwinzxw/australian-spatial-data</a>.
+          Caravan parks and campsites &copy; OpenStreetMap contributors (ODbL). Route lines are
           hand-traced between town locations and simplified.
+        </p>
+        <p>
+          <b>Derived charts:</b> Chart “Mapped sites for every million trips” counts the OpenStreetMap
+          sites inside each state boundary and divides by TRA trips
+          (<code>tools/make_site_metrics.py</code>). The route map counts sites within 50 km of each
+          straight route segment (<code>tools/make_route_segments.py</code>). The distance map measures,
+          for the middle of each 50 km land square, the distance to the nearest site
+          (<code>tools/make_site_metrics.py</code>). The state boundaries are simplified, so sites just
+          off the coast are given to the nearest state.
         </p>
         <p>
           <b>Author:</b> Elma Mally Puteri (ID: 35551410), Monash University, FIT3179 Data Visualisation 2,
           Semester 2, 2026. Published October 2026.
           <b>Source code:</b>
-          <a href="https://github.com/ElmaMallyPuteri/FIT3179_DV2">github.com/ElmaMallyPuteri/FIT3179_DV2</a>. Every chart’s Vega-Lite JSON is in the <code>specs</code> folder.
+          <a href="https://github.com/ElmaMallyPuteri/FIT3179_DV2">github.com/ElmaMallyPuteri/FIT3179_DV2</a>.
+        </p>
+        <p>
+          <b>Chart specifications (Vega-Lite JSON):</b>
+          <a href="specs/01_choropleth_trips_per_1000.json">1 trips per 1,000</a> &middot;
+          <a href="specs/02_heatmap_quarter_state.json">2 seasons</a> &middot;
+          <a href="specs/03_bar_sites_per_trip.json">3 sites per trip</a> &middot;
+          <a href="specs/04_symbol_map_nights.json">4 nights away</a> &middot;
+          <a href="specs/05_waffle_purpose.json">5 purpose</a> &middot;
+          <a href="specs/06_stacked_bar_commercial_parks.json">6 park shares</a> &middot;
+          <a href="specs/07_tile_grid_trip_length.json">7 trip length</a> &middot;
+          <a href="specs/08_dot_map_sites.json">8 site map</a> &middot;
+          <a href="specs/09_route_site_density.json">9 routes</a> &middot;
+          <a href="specs/10_bump_rank.json">10 spending rank</a> &middot;
+          <a href="specs/11_parallel_coordinates.json">11 state profiles</a> &middot;
+          <a href="specs/12_gap_map_nearest_site.json">12 distance to nearest site</a>.
+          Shared fonts and colours are in <a href="specs/theme.json">specs/theme.json</a>.
         </p>
         <p>
           <b>Data notes:</b> Caravan figures cover calendar 2025 and the year to March 2026, while state
-          figures cover the year to June 2026, because the publishers differ. Sites were extracted from
-          OpenStreetMap with the Overpass API (tags <code>tourism=caravan_site</code> and
-          <code>tourism=camp_site</code>); OpenStreetMap coverage is uneven across the country.
+          figures cover the year to June 2026, because the publishers differ. The 14% rise in caravan
+          and camping trips compares 2025 with an adjusted 2024 estimate, because the survey method
+          changed in 2025. Sites were extracted from OpenStreetMap with the Overpass API (tags
+          <code>tourism=caravan_site</code> and <code>tourism=camp_site</code>); OpenStreetMap coverage
+          is uneven across the country.
         </p>
         <p>
           <b>AI acknowledgement:</b> Claude (Anthropic) was used to review the code, fix chart loading and
-          layout problems, and suggest and draft revisions to the page text, chart specifications and
-          styling. All data comes from the sources above.
+          layout problems, write the data-preparation scripts for the site, route and distance charts,
+          and suggest and draft revisions to the page text, chart specifications and styling. All data
+          comes from the sources above.
         </p>
       </div>
     </footer>
