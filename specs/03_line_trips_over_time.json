@@ -36,7 +36,7 @@
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
@@ -259,12 +259,12 @@
         "values": [
           {
             "p": "2025",
-            "m": 6.5,
+            "m": 9.2,
             "t": "The survey method changed in 2025,"
           },
           {
             "p": "2025",
-            "m": 4.5,
+            "m": 7.8,
             "t": "so 2024 is an adjusted estimate."
           }
         ]

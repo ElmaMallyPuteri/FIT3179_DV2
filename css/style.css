@@ -3,9 +3,8 @@
    Palette (shared with every chart in /specs):
    Space Cadet #25344F, Slate Gray #617891, Tan #D5B893,
    Coffee #6F4D38, Caput Mortuum #632024
-   Type: headings in Fraunces (a warm, slightly weathered serif that suits a road-trip story),
-   body text in Public Sans (clear and open at reading sizes). Both load from Google Fonts,
-   with Georgia and Arial as fallbacks.
+   Type: headings in Times New Roman (serif),
+   body text in Public Sans (sans serif, loaded from Google Fonts, with Arial as fallback).
    ===================================================================== */
 :root {
   --space: #25344f;
@@ -17,7 +16,7 @@
   --page-alt: #f0e8d9; /* slightly deeper tint, for alternating sections */
   --card: #fffdf8;
   --card-edge: #e4dac8;
-  --serif: Fraunces, Georgia, "Times New Roman", serif;
+  --serif: "Times New Roman", Times, serif;
   --sans: "Public Sans", Arial, Helvetica, sans-serif;
 }
 

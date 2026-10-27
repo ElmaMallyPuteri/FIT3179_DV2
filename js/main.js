@@ -33,7 +33,6 @@ function drawCharts() {
 // Vega measures text as it draws, so wait for the web fonts first (but never for more than 2.5 s).
 const fontsReady = document.fonts
   ? Promise.all([
-      document.fonts.load('700 17px Fraunces'),
       document.fonts.load('400 12px "Public Sans"'),
       document.fonts.load('700 12px "Public Sans"'),
     ])

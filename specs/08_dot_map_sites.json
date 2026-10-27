@@ -2,7 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Caravan parks and campsites",
-    "subtitle": "9,782 sites mapped in OpenStreetMap"
+    "subtitle": [
+      "9,782 sites mapped in OpenStreetMap.",
+      "Dense along the east and south-east coasts;",
+      "in the outback, sites are hundreds of km apart."
+    ]
   },
   "width": "container",
   "height": 440,
@@ -36,7 +40,7 @@
       "titleColor": "#25344F"
     },
     "title": {
-      "font": "Fraunces, Georgia, \"Times New Roman\", serif",
+      "font": "Times New Roman, Times, serif",
       "fontSize": 17,
       "fontWeight": "bold",
       "anchor": "start",
@@ -128,7 +132,8 @@
             "orient": "bottom",
             "symbolOpacity": 1,
             "symbolSize": 90,
-            "labelExpr": "datum.value == 'caravan_site' ? 'Caravan park (2,015)' : 'Campsite (7,767)'"
+            "labelExpr": "datum.value == 'caravan_site' ? 'Caravan park (2,015)' : 'Campsite (7,767)'",
+            "labelLimit": 260
           }
         },
         "tooltip": [
@@ -137,146 +142,6 @@
             "title": "Name"
           }
         ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "lon": 125.0,
-            "lat": -25.0,
-            "t": "Outback: sites are"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "fontStyle": "normal",
-        "color": "#25344F",
-        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "lon": 125.0,
-            "lat": -26.9,
-            "t": "hundreds of km apart"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "fontStyle": "normal",
-        "color": "#25344F",
-        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "lon": 113.6,
-            "lat": -39.2,
-            "t": "Most sites hug the east and"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "fontStyle": "normal",
-        "color": "#632024",
-        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "lon": 113.6,
-            "lat": -41.1,
-            "t": "south-east coasts  →"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "fontSize": 12,
-        "fontWeight": "bold",
-        "fontStyle": "normal",
-        "color": "#632024",
-        "font": "\"Public Sans\", Arial, Helvetica, sans-serif"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t",
-          "type": "nominal"
-        }
       }
     }
   ]
